@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rqb-tJ-vme">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rqb-tJ-vme">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -409,6 +409,95 @@
             </objects>
             <point key="canvasLocation" x="1351" y="403"/>
         </scene>
+        <!--提醒-->
+        <scene sceneID="AFY-ax-ZCM">
+            <objects>
+                <viewController id="XYF-PK-SMY" customClass="RemindViewController" customModule="SKCalendarView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="abX-7Q-1cu"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Q5-jM-Wo0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lo8-DK-bmS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cxg-HJ-put">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uBp-rj-Ux6" customClass="RemindCell" customModule="SKCalendarView" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uBp-rj-Ux6" id="01K-7p-glB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XYF-PK-SMY" id="YhS-bL-smK"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXC-1d-Xe7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmM-Af-iVQ">
+                                        <rect key="frame" x="127.5" y="300" width="120" height="39"/>
+                                        <color key="backgroundColor" red="1" green="0.72436772670000005" blue="0.061061645980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="EzL-wJ-ZKu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="新建提醒"/>
+                                        <connections>
+                                            <segue destination="xD7-vx-dY4" kind="presentation" id="elJ-NM-zNA"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tixing" translatesAutoresizingMaskIntoConstraints="NO" id="V6F-1D-JBx">
+                                        <rect key="frame" x="87.5" y="66" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Hfi-2u-cDx"/>
+                                            <constraint firstAttribute="width" constant="200" id="rtI-rd-Owo"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="V6F-1D-JBx" firstAttribute="centerX" secondItem="wXC-1d-Xe7" secondAttribute="centerX" id="2Ef-J9-d3W"/>
+                                    <constraint firstItem="V6F-1D-JBx" firstAttribute="top" secondItem="wXC-1d-Xe7" secondAttribute="top" constant="66" id="Boz-ux-1DQ"/>
+                                    <constraint firstItem="WmM-Af-iVQ" firstAttribute="centerX" secondItem="wXC-1d-Xe7" secondAttribute="centerX" id="VID-QE-sf0"/>
+                                    <constraint firstItem="WmM-Af-iVQ" firstAttribute="top" secondItem="V6F-1D-JBx" secondAttribute="bottom" constant="34" id="ctt-mz-lbY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8Q5-jM-Wo0" firstAttribute="top" secondItem="wXC-1d-Xe7" secondAttribute="bottom" id="33T-tS-uSM"/>
+                            <constraint firstItem="wXC-1d-Xe7" firstAttribute="top" secondItem="abX-7Q-1cu" secondAttribute="bottom" id="9H0-aB-KZt"/>
+                            <constraint firstAttribute="trailing" secondItem="Cxg-HJ-put" secondAttribute="trailing" id="Bkx-ZL-jWi"/>
+                            <constraint firstItem="8Q5-jM-Wo0" firstAttribute="top" secondItem="Cxg-HJ-put" secondAttribute="bottom" id="Wlq-Li-7aE"/>
+                            <constraint firstItem="wXC-1d-Xe7" firstAttribute="leading" secondItem="lo8-DK-bmS" secondAttribute="leading" id="XOj-C9-uFx"/>
+                            <constraint firstAttribute="trailing" secondItem="wXC-1d-Xe7" secondAttribute="trailing" id="iS4-FQ-Lj2"/>
+                            <constraint firstItem="Cxg-HJ-put" firstAttribute="top" secondItem="abX-7Q-1cu" secondAttribute="bottom" id="qj4-eO-6Oi"/>
+                            <constraint firstItem="Cxg-HJ-put" firstAttribute="leading" secondItem="lo8-DK-bmS" secondAttribute="leading" id="twz-uE-kgJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="提醒" id="4dN-mh-Noi">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="exo-XB-ujO">
+                            <connections>
+                                <segue destination="xD7-vx-dY4" kind="presentation" id="RIB-Dq-0j9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emptyDataView" destination="wXC-1d-Xe7" id="tXj-lk-8TD"/>
+                        <outlet property="tableView" destination="Cxg-HJ-put" id="flm-Ik-JqB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jr4-v1-9Db" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1360.8" y="1309.2953523238382"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="eRM-eb-Mlk">
             <objects>
@@ -435,7 +524,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="a8v-64-dpE" kind="relationship" relationship="rootViewController" id="ugz-QJ-vhu"/>
+                        <segue destination="XYF-PK-SMY" kind="relationship" relationship="rootViewController" id="hTG-DJ-z3N"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ET2-Mx-v1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -920,5 +1009,9 @@
         <image name="note" width="32" height="32"/>
         <image name="repeat-off" width="32" height="32"/>
         <image name="ring" width="32" height="32"/>
+        <image name="tixing" width="488" height="495"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RIB-Dq-0j9"/>
+    </inferredMetricsTieBreakers>
 </document>

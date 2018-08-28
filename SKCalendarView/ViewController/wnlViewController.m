@@ -69,36 +69,38 @@
     // 公历日
     self.dayLabel = [UILabel new];
     [self.lunarView addSubview:self.dayLabel];
-    self.dayLabel.font = [UIFont systemFontOfSize:18];
+    self.dayLabel.textColor = [UIColor colorWithRed:255/255.0 green:103/255.0 blue:0/255.0 alpha:1];
+    self.dayLabel.font = [UIFont systemFontOfSize:35];
     self.dayLabel.text = [NSString stringWithFormat:@"%@", self.calendarView.gongcalendarDate[self.calendarView.todayInMonth]];
     self.dayLabel.textAlignment = NSTextAlignmentCenter;
     [self.dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.calendarView.mas_bottom).with.offset(50);
-        make.centerX.equalTo(self.calendarView.mas_left).with.offset(20);
+        make.centerX.equalTo(self.calendarView.mas_left).with.offset(50);
+    }];
+    
+    // 农历月日
+    self.chineseMonthAndDayLabel = [UILabel new];
+    [self.lunarView addSubview:self.chineseMonthAndDayLabel];
+    self.chineseMonthAndDayLabel.font = [UIFont systemFontOfSize:20];
+    //self.chineseMonthAndDayLabel.textColor = [UIColor redColor];
+    // 默认农历日期 今天
+    self.chineseMonthAndDayLabel.text = [NSString stringWithFormat:@"农历%@%@", self.calendarView.chineseCalendarMonth[self.calendarView.todayInMonth - 1], getNoneNil(self.calendarView.chineseCalendarDay[self.calendarView.todayInMonth])];
+    self.chineseMonthAndDayLabel.textAlignment = NSTextAlignmentCenter;
+    [self.chineseMonthAndDayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.calendarView.mas_bottom).with.offset(50);
+        make.centerX.equalTo(self.calendarView.mas_left).with.offset(150);
     }];
     
     // 农历年
     self.chineseYearLabel = [UILabel new];
     [self.lunarView addSubview:self.chineseYearLabel];
     self.chineseYearLabel.font = [UIFont systemFontOfSize:18];
+    self.chineseYearLabel.textColor = [UIColor grayColor];
     self.chineseYearLabel.text = [NSString stringWithFormat:@"%@年", self.calendarView.chineseYear];
     self.chineseYearLabel.textAlignment = NSTextAlignmentCenter;
     [self.chineseYearLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.calendarView.mas_bottom).with.offset(50);
-        make.centerX.equalTo(self.calendarView.mas_left).with.offset(100);
-    }];
-    
-    // 农历月日
-    self.chineseMonthAndDayLabel = [UILabel new];
-    [self.lunarView addSubview:self.chineseMonthAndDayLabel];
-    self.chineseMonthAndDayLabel.font = [UIFont systemFontOfSize:15];
-    self.chineseMonthAndDayLabel.textColor = [UIColor redColor];
-    // 默认农历日期 今天
-    self.chineseMonthAndDayLabel.text = [NSString stringWithFormat:@"%@%@", self.calendarView.chineseCalendarMonth[self.calendarView.todayInMonth - 1], getNoneNil(self.calendarView.chineseCalendarDay[self.calendarView.todayInMonth])];
-    self.chineseMonthAndDayLabel.textAlignment = NSTextAlignmentCenter;
-    [self.chineseMonthAndDayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.chineseYearLabel.mas_bottom).with.offset(5);
-        make.centerX.equalTo(self.chineseYearLabel);
+        make.top.equalTo(self.chineseMonthAndDayLabel.mas_bottom).with.offset(5);
+        make.centerX.equalTo(self.chineseMonthAndDayLabel);
     }];
     
     // 节日&节气
@@ -110,20 +112,22 @@
     // 获取节日，注意：此处传入的参数为chineseCalendarDay(包含不节日等信息)
     self.holidayLabel.text = [self.calendarView getHolidayAndSolarTermsWithChineseDay:getNoneNil(self.calendarView.chineseCalendarDay[self.calendarView.todayInMonth])];
     [self.holidayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.chineseMonthAndDayLabel.mas_bottom).with.offset(5);
-        make.centerX.equalTo(self.chineseMonthAndDayLabel);
+//        make.top.equalTo(self.chineseMonthAndDayLabel.mas_left);
+//        make.centerX.equalTo(self.chineseMonthAndDayLabel);
+        make.top.equalTo(self.calendarView.mas_bottom).with.offset(50);
+        make.centerX.equalTo(self.calendarView.mas_left).with.offset(200);
     }];
     
     // 返回今天
-    self.backToday = [UIButton new];
-    [self.view addSubview:self.backToday];
-    [self.backToday setTitle:@"返回今天" forState:UIControlStateNormal];
-    [self.backToday setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [self.backToday mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.calendarView.mas_bottom).with.offset(30);
-        make.centerX.equalTo(self.calendarView);
-    }];
-    [self.backToday addTarget:self action:@selector(clickBackToday) forControlEvents:UIControlEventTouchUpInside];
+//    self.backToday = [UIButton new];
+//    [self.view addSubview:self.backToday];
+//    [self.backToday setTitle:@"返回今天" forState:UIControlStateNormal];
+//    [self.backToday setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+//    [self.backToday mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.calendarView.mas_bottom).with.offset(30);
+//        make.centerX.equalTo(self.calendarView);
+//    }];
+//    [self.backToday addTarget:self action:@selector(clickBackToday) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
@@ -136,14 +140,14 @@
 - (UIView *)lunarView
 {
     if (!_lunarView) {
-        _lunarView = [[UIView alloc] initWithFrame:CGRectMake(0, 400, [UIScreen mainScreen].bounds.size.width, 70)];
+        _lunarView = [[UIView alloc] initWithFrame:CGRectMake(0, 300, [UIScreen mainScreen].bounds.size.width, 70)];
         _lunarView.layer.borderColor = [UIColor blackColor].CGColor;
-        _lunarView.layer.borderWidth =0.3;
+        _lunarView.layer.borderWidth =0.1;
         //view添加阴影
         _lunarView.layer.masksToBounds = NO;
         _lunarView.layer.shadowColor = [UIColor blackColor].CGColor;
         _lunarView.layer.shadowOffset = CGSizeMake(0.0f, 5.0f);
-        _lunarView.layer.shadowOpacity = 0.2f;
+        _lunarView.layer.shadowOpacity = 0.1f;
 
     }
     
