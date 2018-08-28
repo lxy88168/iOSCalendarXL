@@ -1,0 +1,6 @@
+module Pods_SKCalendarView {
+  umbrella header "Pods-SKCalendarView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,20 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.0.5)
+  - Masonry (1.0.0)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - Masonry
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ActionSheetPicker-3.0
+    - Masonry
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+
+PODFILE CHECKSUM: 12aef7e64c9af1aada7ac6218df8f071402dfde5
+
+COCOAPODS: 1.5.3

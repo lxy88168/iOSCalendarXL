@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8723BA0C21356FE300AF7172 /* rqhsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8723BA0B21356FE200AF7172 /* rqhsViewController.m */; };
+		872C0A31211F304A00D813AD /* wnlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A30211F304A00D813AD /* wnlViewController.m */; };
+		872C0A42211F33EE00D813AD /* Solar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A37211F33EE00D813AD /* Solar.m */; };
+		872C0A43211F33EE00D813AD /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 872C0A38211F33EE00D813AD /* left@2x.png */; };
+		872C0A44211F33EE00D813AD /* CalendarDisplyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A39211F33EE00D813AD /* CalendarDisplyManager.m */; };
+		872C0A45211F33EE00D813AD /* LunarSolarTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A3A211F33EE00D813AD /* LunarSolarTransform.m */; };
+		872C0A46211F33EE00D813AD /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 872C0A3C211F33EE00D813AD /* right@2x.png */; };
+		872C0A47211F33EE00D813AD /* Lunar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A3F211F33EE00D813AD /* Lunar.m */; };
+		878B893E2129BE3C00BB970B /* SolarDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B893C2129BE3C00BB970B /* SolarDatePickerView.m */; };
+		878B89442129C7AC00BB970B /* LunarDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B89422129C7AB00BB970B /* LunarDatePickerView.m */; };
+		A626E70721300875008AD935 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70521300875008AD935 /* ImageCell.swift */; };
+		A626E70821300875008AD935 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626E70621300875008AD935 /* ImageCell.xib */; };
+		A626E70A21300C56008AD935 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70921300C56008AD935 /* Models.swift */; };
+		A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */; };
+		A626E70F2130DAFD008AD935 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */; };
+		A626E71621312DE0008AD935 /* libActionSheetPicker-3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */; };
+		A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A626E72221330F1F008AD935 /* StopButton@2x.png */; };
+		A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A626E72321330F1F008AD935 /* PlayButton@2x.png */; };
+		A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626E72421330F1F008AD935 /* AudioRecorderViewController.xib */; };
+		A626E72921330F1F008AD935 /* AudioRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E72521330F1F008AD935 /* AudioRecorderViewController.swift */; };
+		A62922E2212FB3230032E1E9 /* RemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62922E1212FB3230032E1E9 /* RemindViewController.swift */; };
+		A62922E5212FD47F0032E1E9 /* RemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62922E3212FD47F0032E1E9 /* RemindCell.swift */; };
+		A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62922E4212FD47F0032E1E9 /* RemindCell.xib */; };
+		A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */; };
+		A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */; };
+		A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */; };
+		DB8727EDF6A15B04C9D3071E /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */; };
+		E46BB91A1E8B678400A1E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB9191E8B678400A1E1C7 /* main.m */; };
+		E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */; };
+		E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9211E8B678400A1E1C7 /* Main.storyboard */; };
+		E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9241E8B678400A1E1C7 /* Assets.xcassets */; };
+		E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9261E8B678400A1E1C7 /* LaunchScreen.storyboard */; };
+		E49B05111E8F76A8007D230C /* SKCalendarManage.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B05021E8F76A8007D230C /* SKCalendarManage.m */; };
+		E49B05121E8F76A8007D230C /* SKCalendarAnimationManage.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B05051E8F76A8007D230C /* SKCalendarAnimationManage.m */; };
+		E49B05131E8F76A8007D230C /* SKDateSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B05091E8F76A8007D230C /* SKDateSecurity.m */; };
+		E49B05141E8F76A8007D230C /* SKCalendarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B050C1E8F76A8007D230C /* SKCalendarCollectionViewCell.m */; };
+		E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B050E1E8F76A8007D230C /* SKCalendarView.m */; };
+		E49B05161E8F76A8007D230C /* SKWeekCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E49B05101E8F76A8007D230C /* SKWeekCollectionViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6841B559C4AF4A4F31494B4D /* Pods-SKCalendarView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKCalendarView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKCalendarView/Pods-SKCalendarView.debug.xcconfig"; sourceTree = "<group>"; };
+		8723BA0A21356FE200AF7172 /* rqhsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rqhsViewController.h; sourceTree = "<group>"; };
+		8723BA0B21356FE200AF7172 /* rqhsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rqhsViewController.m; sourceTree = "<group>"; };
+		872C0A2F211F304A00D813AD /* wnlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wnlViewController.h; sourceTree = "<group>"; };
+		872C0A30211F304A00D813AD /* wnlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wnlViewController.m; sourceTree = "<group>"; };
+		872C0A37211F33EE00D813AD /* Solar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solar.m; sourceTree = "<group>"; };
+		872C0A38211F33EE00D813AD /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		872C0A39211F33EE00D813AD /* CalendarDisplyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDisplyManager.m; sourceTree = "<group>"; };
+		872C0A3A211F33EE00D813AD /* LunarSolarTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarSolarTransform.m; sourceTree = "<group>"; };
+		872C0A3B211F33EE00D813AD /* Lunar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lunar.h; sourceTree = "<group>"; };
+		872C0A3C211F33EE00D813AD /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
+		872C0A3D211F33EE00D813AD /* Solar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solar.h; sourceTree = "<group>"; };
+		872C0A3E211F33EE00D813AD /* CalendarDisplyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDisplyManager.h; sourceTree = "<group>"; };
+		872C0A3F211F33EE00D813AD /* Lunar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lunar.m; sourceTree = "<group>"; };
+		872C0A40211F33EE00D813AD /* LunarSolarTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarSolarTransform.h; sourceTree = "<group>"; };
+		872C0A41211F33EE00D813AD /* CalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarHeader.h; sourceTree = "<group>"; };
+		878B893C2129BE3C00BB970B /* SolarDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolarDatePickerView.m; sourceTree = "<group>"; };
+		878B893D2129BE3C00BB970B /* SolarDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolarDatePickerView.h; sourceTree = "<group>"; };
+		878B89422129C7AB00BB970B /* LunarDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarDatePickerView.m; sourceTree = "<group>"; };
+		878B89432129C7AC00BB970B /* LunarDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarDatePickerView.h; sourceTree = "<group>"; };
+		A626E70521300875008AD935 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		A626E70621300875008AD935 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		A626E70921300C56008AD935 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A626E70B21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXCollectionViewLeftOrRightAlignedLayout.h; sourceTree = "<group>"; };
+		A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXCollectionViewLeftOrRightAlignedLayout.m; sourceTree = "<group>"; };
+		A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
+		A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libActionSheetPicker-3.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A626E72221330F1F008AD935 /* StopButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StopButton@2x.png"; sourceTree = "<group>"; };
+		A626E72321330F1F008AD935 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButton@2x.png"; sourceTree = "<group>"; };
+		A626E72421330F1F008AD935 /* AudioRecorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioRecorderViewController.xib; sourceTree = "<group>"; };
+		A626E72521330F1F008AD935 /* AudioRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewController.swift; sourceTree = "<group>"; };
+		A62922E1212FB3230032E1E9 /* RemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewController.swift; sourceTree = "<group>"; };
+		A62922E3212FD47F0032E1E9 /* RemindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindCell.swift; sourceTree = "<group>"; };
+		A62922E4212FD47F0032E1E9 /* RemindCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell.xib; sourceTree = "<group>"; };
+		A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKCalendarView-Bridging-Header.h"; sourceTree = "<group>"; };
+		A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClipCell.swift; sourceTree = "<group>"; };
+		A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioClipCell.xib; sourceTree = "<group>"; };
+		A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRemindViewController.swift; sourceTree = "<group>"; };
+		BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKCalendarView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40120A811C0307FFDDA7152 /* Pods-SKCalendarView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKCalendarView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKCalendarView/Pods-SKCalendarView.release.xcconfig"; sourceTree = "<group>"; };
+		E46BB9151E8B678400A1E1C7 /* SKCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E46BB9191E8B678400A1E1C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E46BB91B1E8B678400A1E1C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E46BB9221E8B678400A1E1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E46BB9241E8B678400A1E1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E46BB9271E8B678400A1E1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E46BB9291E8B678400A1E1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E49B05011E8F76A8007D230C /* SKCalendarManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCalendarManage.h; sourceTree = "<group>"; };
+		E49B05021E8F76A8007D230C /* SKCalendarManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCalendarManage.m; sourceTree = "<group>"; };
+		E49B05041E8F76A8007D230C /* SKCalendarAnimationManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCalendarAnimationManage.h; sourceTree = "<group>"; };
+		E49B05051E8F76A8007D230C /* SKCalendarAnimationManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCalendarAnimationManage.m; sourceTree = "<group>"; };
+		E49B05071E8F76A8007D230C /* SKConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKConstant.h; sourceTree = "<group>"; };
+		E49B05081E8F76A8007D230C /* SKDateSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDateSecurity.h; sourceTree = "<group>"; };
+		E49B05091E8F76A8007D230C /* SKDateSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDateSecurity.m; sourceTree = "<group>"; };
+		E49B050B1E8F76A8007D230C /* SKCalendarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCalendarCollectionViewCell.h; sourceTree = "<group>"; };
+		E49B050C1E8F76A8007D230C /* SKCalendarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCalendarCollectionViewCell.m; sourceTree = "<group>"; };
+		E49B050D1E8F76A8007D230C /* SKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCalendarView.h; sourceTree = "<group>"; };
+		E49B050E1E8F76A8007D230C /* SKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCalendarView.m; sourceTree = "<group>"; };
+		E49B050F1E8F76A8007D230C /* SKWeekCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKWeekCollectionViewCell.h; sourceTree = "<group>"; };
+		E49B05101E8F76A8007D230C /* SKWeekCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKWeekCollectionViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E46BB9121E8B678400A1E1C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A626E71621312DE0008AD935 /* libActionSheetPicker-3.0.a in Frameworks */,
+				DB8727EDF6A15B04C9D3071E /* libPods-SKCalendarView.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		704A77DB0C8B0FF0DDB03F64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6841B559C4AF4A4F31494B4D /* Pods-SKCalendarView.debug.xcconfig */,
+				D40120A811C0307FFDDA7152 /* Pods-SKCalendarView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		872C0A32211F337000D813AD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				872C0A2F211F304A00D813AD /* wnlViewController.h */,
+				872C0A30211F304A00D813AD /* wnlViewController.m */,
+				8723BA0A21356FE200AF7172 /* rqhsViewController.h */,
+				8723BA0B21356FE200AF7172 /* rqhsViewController.m */,
+				A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */,
+				A62922E1212FB3230032E1E9 /* RemindViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		872C0A36211F33EE00D813AD /* RQHSHead */ = {
+			isa = PBXGroup;
+			children = (
+				872C0A37211F33EE00D813AD /* Solar.m */,
+				872C0A38211F33EE00D813AD /* left@2x.png */,
+				872C0A39211F33EE00D813AD /* CalendarDisplyManager.m */,
+				872C0A3A211F33EE00D813AD /* LunarSolarTransform.m */,
+				872C0A3B211F33EE00D813AD /* Lunar.h */,
+				872C0A3C211F33EE00D813AD /* right@2x.png */,
+				872C0A3D211F33EE00D813AD /* Solar.h */,
+				872C0A3E211F33EE00D813AD /* CalendarDisplyManager.h */,
+				872C0A3F211F33EE00D813AD /* Lunar.m */,
+				872C0A40211F33EE00D813AD /* LunarSolarTransform.h */,
+				872C0A41211F33EE00D813AD /* CalendarHeader.h */,
+			);
+			path = RQHSHead;
+			sourceTree = "<group>";
+		};
+		872C0A6B211FD2D200D813AD /* DatePickerHead */ = {
+			isa = PBXGroup;
+			children = (
+				878B893D2129BE3C00BB970B /* SolarDatePickerView.h */,
+				878B893C2129BE3C00BB970B /* SolarDatePickerView.m */,
+				878B89432129C7AC00BB970B /* LunarDatePickerView.h */,
+				878B89422129C7AB00BB970B /* LunarDatePickerView.m */,
+			);
+			path = DatePickerHead;
+			sourceTree = "<group>";
+		};
+		9224897CB7A6DAF68F20EEF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */,
+				BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A626E72121330F1F008AD935 /* AudioRecorderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A626E72221330F1F008AD935 /* StopButton@2x.png */,
+				A626E72321330F1F008AD935 /* PlayButton@2x.png */,
+				A626E72421330F1F008AD935 /* AudioRecorderViewController.xib */,
+				A626E72521330F1F008AD935 /* AudioRecorderViewController.swift */,
+			);
+			path = AudioRecorderViewController;
+			sourceTree = "<group>";
+		};
+		A647412D212E3945008C8EC0 /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				A626E72121330F1F008AD935 /* AudioRecorderViewController */,
+				A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */,
+				A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */,
+				A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */,
+				A62922E3212FD47F0032E1E9 /* RemindCell.swift */,
+				A62922E4212FD47F0032E1E9 /* RemindCell.xib */,
+				A626E70521300875008AD935 /* ImageCell.swift */,
+				A626E70621300875008AD935 /* ImageCell.xib */,
+				A626E70921300C56008AD935 /* Models.swift */,
+				A626E70B21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.h */,
+				A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */,
+				A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */,
+			);
+			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		E46BB90C1E8B678300A1E1C7 = {
+			isa = PBXGroup;
+			children = (
+				E46BB9171E8B678400A1E1C7 /* SKCalendarView */,
+				E46BB9161E8B678400A1E1C7 /* Products */,
+				704A77DB0C8B0FF0DDB03F64 /* Pods */,
+				9224897CB7A6DAF68F20EEF2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E46BB9161E8B678400A1E1C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E46BB9151E8B678400A1E1C7 /* SKCalendarView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E46BB9171E8B678400A1E1C7 /* SKCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				A647412D212E3945008C8EC0 /* CommonViews */,
+				872C0A36211F33EE00D813AD /* RQHSHead */,
+				872C0A6B211FD2D200D813AD /* DatePickerHead */,
+				E46BB92F1E8B67AB00A1E1C7 /* SKCalendarView */,
+				872C0A32211F337000D813AD /* ViewController */,
+				E46BB91B1E8B678400A1E1C7 /* AppDelegate.h */,
+				E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */,
+				E46BB9211E8B678400A1E1C7 /* Main.storyboard */,
+				E46BB9241E8B678400A1E1C7 /* Assets.xcassets */,
+				E46BB9261E8B678400A1E1C7 /* LaunchScreen.storyboard */,
+				E46BB9291E8B678400A1E1C7 /* Info.plist */,
+				E46BB9181E8B678400A1E1C7 /* Supporting Files */,
+			);
+			path = SKCalendarView;
+			sourceTree = "<group>";
+		};
+		E46BB9181E8B678400A1E1C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E46BB9191E8B678400A1E1C7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E46BB92F1E8B67AB00A1E1C7 /* SKCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				E49B05061E8F76A8007D230C /* Tool */,
+				E49B050A1E8F76A8007D230C /* View */,
+				E49B05001E8F76A8007D230C /* Algorithm */,
+				E49B05031E8F76A8007D230C /* Animation */,
+			);
+			path = SKCalendarView;
+			sourceTree = "<group>";
+		};
+		E49B05001E8F76A8007D230C /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				E49B05011E8F76A8007D230C /* SKCalendarManage.h */,
+				E49B05021E8F76A8007D230C /* SKCalendarManage.m */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		E49B05031E8F76A8007D230C /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				E49B05041E8F76A8007D230C /* SKCalendarAnimationManage.h */,
+				E49B05051E8F76A8007D230C /* SKCalendarAnimationManage.m */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		E49B05061E8F76A8007D230C /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E49B05071E8F76A8007D230C /* SKConstant.h */,
+				E49B05081E8F76A8007D230C /* SKDateSecurity.h */,
+				E49B05091E8F76A8007D230C /* SKDateSecurity.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		E49B050A1E8F76A8007D230C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E49B050D1E8F76A8007D230C /* SKCalendarView.h */,
+				E49B050E1E8F76A8007D230C /* SKCalendarView.m */,
+				E49B050B1E8F76A8007D230C /* SKCalendarCollectionViewCell.h */,
+				E49B050C1E8F76A8007D230C /* SKCalendarCollectionViewCell.m */,
+				E49B050F1E8F76A8007D230C /* SKWeekCollectionViewCell.h */,
+				E49B05101E8F76A8007D230C /* SKWeekCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E46BB9141E8B678400A1E1C7 /* SKCalendarView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E46BB92C1E8B678400A1E1C7 /* Build configuration list for PBXNativeTarget "SKCalendarView" */;
+			buildPhases = (
+				9FE074CF4EE7EB1D00BFFA14 /* [CP] Check Pods Manifest.lock */,
+				E46BB9111E8B678400A1E1C7 /* Sources */,
+				E46BB9121E8B678400A1E1C7 /* Frameworks */,
+				E46BB9131E8B678400A1E1C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SKCalendarView;
+			productName = SKCalendarView;
+			productReference = E46BB9151E8B678400A1E1C7 /* SKCalendarView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E46BB90D1E8B678300A1E1C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SK;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = shevchenko;
+				TargetAttributes = {
+					E46BB9141E8B678400A1E1C7 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = U8F48NMX4F;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E46BB9101E8B678300A1E1C7 /* Build configuration list for PBXProject "SKCalendarView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E46BB90C1E8B678300A1E1C7;
+			productRefGroup = E46BB9161E8B678400A1E1C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E46BB9141E8B678400A1E1C7 /* SKCalendarView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E46BB9131E8B678400A1E1C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */,
+				A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */,
+				E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */,
+				E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */,
+				A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */,
+				E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */,
+				872C0A46211F33EE00D813AD /* right@2x.png in Resources */,
+				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
+				A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */,
+				872C0A43211F33EE00D813AD /* left@2x.png in Resources */,
+				A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FE074CF4EE7EB1D00BFFA14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SKCalendarView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E46BB9111E8B678400A1E1C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49B05161E8F76A8007D230C /* SKWeekCollectionViewCell.m in Sources */,
+				A626E70A21300C56008AD935 /* Models.swift in Sources */,
+				E49B05121E8F76A8007D230C /* SKCalendarAnimationManage.m in Sources */,
+				A626E70721300875008AD935 /* ImageCell.swift in Sources */,
+				E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */,
+				872C0A31211F304A00D813AD /* wnlViewController.m in Sources */,
+				A626E70F2130DAFD008AD935 /* MediaCollectionViewCell.swift in Sources */,
+				A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */,
+				A62922E5212FD47F0032E1E9 /* RemindCell.swift in Sources */,
+				A626E72921330F1F008AD935 /* AudioRecorderViewController.swift in Sources */,
+				A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */,
+				E49B05131E8F76A8007D230C /* SKDateSecurity.m in Sources */,
+				872C0A42211F33EE00D813AD /* Solar.m in Sources */,
+				E49B05141E8F76A8007D230C /* SKCalendarCollectionViewCell.m in Sources */,
+				878B893E2129BE3C00BB970B /* SolarDatePickerView.m in Sources */,
+				A62922E2212FB3230032E1E9 /* RemindViewController.swift in Sources */,
+				872C0A44211F33EE00D813AD /* CalendarDisplyManager.m in Sources */,
+				8723BA0C21356FE300AF7172 /* rqhsViewController.m in Sources */,
+				E49B05111E8F76A8007D230C /* SKCalendarManage.m in Sources */,
+				A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */,
+				872C0A47211F33EE00D813AD /* Lunar.m in Sources */,
+				E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */,
+				872C0A45211F33EE00D813AD /* LunarSolarTransform.m in Sources */,
+				878B89442129C7AC00BB970B /* LunarDatePickerView.m in Sources */,
+				E46BB91A1E8B678400A1E1C7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E46BB9211E8B678400A1E1C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46BB9221E8B678400A1E1C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E46BB9261E8B678400A1E1C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E46BB9271E8B678400A1E1C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E46BB92A1E8B678400A1E1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E46BB92B1E8B678400A1E1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E46BB92D1E8B678400A1E1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6841B559C4AF4A4F31494B4D /* Pods-SKCalendarView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U8F48NMX4F;
+				INFOPLIST_FILE = SKCalendarView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SKCalendarView/CommonViews/SKCalendarView-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E46BB92E1E8B678400A1E1C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D40120A811C0307FFDDA7152 /* Pods-SKCalendarView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = U8F48NMX4F;
+				INFOPLIST_FILE = SKCalendarView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SKCalendarView/CommonViews/SKCalendarView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E46BB9101E8B678300A1E1C7 /* Build configuration list for PBXProject "SKCalendarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46BB92A1E8B678400A1E1C7 /* Debug */,
+				E46BB92B1E8B678400A1E1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E46BB92C1E8B678400A1E1C7 /* Build configuration list for PBXNativeTarget "SKCalendarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E46BB92D1E8B678400A1E1C7 /* Debug */,
+				E46BB92E1E8B678400A1E1C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E46BB90D1E8B678300A1E1C7 /* Project object */;
+}
