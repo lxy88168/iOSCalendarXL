@@ -8,7 +8,11 @@
 
 import UIKit
 
-class RemindViewController: UITableViewController {
+class RemindViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var emptyDataView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
     var reminds = [Remind]()
 
     override func viewDidLoad() {
@@ -71,6 +75,14 @@ class RemindViewController: UITableViewController {
             }
         })
         
+        if reminds.count == 0 {
+            emptyDataView.isHidden = false
+            tableView.isHidden = true
+        } else {
+            emptyDataView.isHidden = true
+            tableView.isHidden = false
+        }
+        
         tableView.reloadData()
     }
     
@@ -89,17 +101,17 @@ class RemindViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return reminds.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "remindCell", for: indexPath) as! RemindCell
         
         let remind = reminds[indexPath.row]
