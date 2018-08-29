@@ -443,7 +443,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmM-Af-iVQ">
-                                        <rect key="frame" x="127.5" y="300" width="120" height="39"/>
+                                        <rect key="frame" x="127.5" y="319" width="120" height="39"/>
                                         <color key="backgroundColor" red="1" green="0.72436772670000005" blue="0.061061645980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="EzL-wJ-ZKu"/>
@@ -455,19 +455,27 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tixing" translatesAutoresizingMaskIntoConstraints="NO" id="V6F-1D-JBx">
-                                        <rect key="frame" x="87.5" y="66" width="200" height="200"/>
+                                        <rect key="frame" x="87.5" y="50" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Hfi-2u-cDx"/>
                                             <constraint firstAttribute="width" constant="200" id="rtI-rd-Owo"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="记下属于您的专属提醒！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3i1-7x-B6X">
+                                        <rect key="frame" x="92" y="266" width="191" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="V6F-1D-JBx" firstAttribute="centerX" secondItem="wXC-1d-Xe7" secondAttribute="centerX" id="2Ef-J9-d3W"/>
-                                    <constraint firstItem="V6F-1D-JBx" firstAttribute="top" secondItem="wXC-1d-Xe7" secondAttribute="top" constant="66" id="Boz-ux-1DQ"/>
+                                    <constraint firstItem="V6F-1D-JBx" firstAttribute="top" secondItem="wXC-1d-Xe7" secondAttribute="top" constant="50" id="Boz-ux-1DQ"/>
                                     <constraint firstItem="WmM-Af-iVQ" firstAttribute="centerX" secondItem="wXC-1d-Xe7" secondAttribute="centerX" id="VID-QE-sf0"/>
-                                    <constraint firstItem="WmM-Af-iVQ" firstAttribute="top" secondItem="V6F-1D-JBx" secondAttribute="bottom" constant="34" id="ctt-mz-lbY"/>
+                                    <constraint firstItem="WmM-Af-iVQ" firstAttribute="top" secondItem="3i1-7x-B6X" secondAttribute="bottom" constant="32" id="bFb-V0-4wf"/>
+                                    <constraint firstItem="3i1-7x-B6X" firstAttribute="centerX" secondItem="wXC-1d-Xe7" secondAttribute="centerX" id="nZt-aT-QJ5"/>
+                                    <constraint firstItem="3i1-7x-B6X" firstAttribute="top" secondItem="V6F-1D-JBx" secondAttribute="bottom" constant="16" id="zAI-9T-8Mk"/>
                                 </constraints>
                             </view>
                         </subviews>

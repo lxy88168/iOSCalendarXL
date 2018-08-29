@@ -123,6 +123,12 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         let cancelAction = UIAlertAction(title: "点错了", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             if sender.owner == self.audioCollectionView {
+                let audio = self.audioClips[sender.row]
+                do {
+                    try FileManager.default.removeItem(atPath: audio.filePath)
+                } catch let error as NSError {
+                    print("delete audio file occurred error: \(error)")
+                }
                 self.audioClips.remove(at: sender.row)
                 self.audioCollectionView.reloadData()
                 self.updateAudioCollectionViewHeight()
@@ -205,9 +211,15 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     
     func audioRecorderViewControllerDismissed(withFileURL fileURL: NSURL?) {
         if fileURL != nil {
-            let filePath = String(describing: fileURL!)
-            print(filePath)
-            self.addMedia(type: .Audio, filePath: filePath)
+            let filePath = RemindViewController.documentsDirectory().appendingFormat("/audio\(Date().timeIntervalSince1970).m4a")
+            do {
+                let data = try NSData(contentsOf: fileURL! as URL, options: NSData.ReadingOptions.mappedIfSafe)
+                FileManager.default.createFile(atPath: filePath, contents: data as Data, attributes: nil)
+                print(filePath)
+                self.addMedia(type: .Audio, filePath: filePath)
+            } catch let error as NSError {
+                print("save audio occurred error. \(error)")
+            }
         }
         audioRecordController?.dismiss(animated: true, completion: nil)
     }
