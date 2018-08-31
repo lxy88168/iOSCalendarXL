@@ -29,9 +29,8 @@ class AudioClipCell: MediaCollectionViewCell, AVAudioPlayerDelegate {
     var media: Media? {
         didSet {
             if media != nil && media!.type == .Audio {
-                let url = NSURL(string: media!.filePath)
                 do {
-                    let data =  try NSData(contentsOf: url! as URL, options: .mappedIfSafe)
+                    let data =  try NSData(contentsOfFile: (media?.filePath)!, options: NSData.ReadingOptions.mappedIfSafe)
                     let player = try AVAudioPlayer(data: data as Data)
                     totalTimeInSecond = Int(player.duration)
                     let date = Date(timeIntervalSince1970: player.duration)
@@ -48,10 +47,9 @@ class AudioClipCell: MediaCollectionViewCell, AVAudioPlayerDelegate {
     
     @IBAction func play(_ sender: Any) {
         if player == nil {
-            let url = NSURL(string: media!.filePath)
-            let data = NSData(contentsOf: url! as URL)
             do {
-                player = try AVAudioPlayer(data: data! as Data)
+                let data =  try NSData(contentsOfFile: (media?.filePath)!, options: NSData.ReadingOptions.mappedIfSafe)
+                player = try AVAudioPlayer(data: data as Data)
                 player?.delegate = self
                 player?.prepareToPlay()
             } catch let error as NSError {
