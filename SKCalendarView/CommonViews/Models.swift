@@ -49,6 +49,7 @@ enum RemindRepeatType : Int {
 
 class Remind: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(filePath, forKey: "filePath")
         aCoder.encode(content, forKey: "content")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(repeatType.rawValue, forKey: "repeatType")
@@ -62,7 +63,8 @@ class Remind: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.content = aDecoder.decodeObject(forKey: "content") as! String
+        filePath = aDecoder.decodeObject(forKey: "filePath") as! String
+        content = aDecoder.decodeObject(forKey: "content") as! String
         date = aDecoder.decodeObject(of: Date.ReferenceType.self, forKey: "date")! as Date
         repeatType = RemindRepeatType(rawValue: aDecoder.decodeInteger(forKey: "repeatType"))!
         location = aDecoder.decodeObject(forKey: "location") as? String
@@ -70,6 +72,7 @@ class Remind: NSObject, NSCoding {
         medias = aDecoder.decodeObject(forKey: "medias") as! [Media]
     }
     
+    var filePath: String?
     var content = ""
     var date = Date()
     var repeatType: RemindRepeatType = .Norepeat
