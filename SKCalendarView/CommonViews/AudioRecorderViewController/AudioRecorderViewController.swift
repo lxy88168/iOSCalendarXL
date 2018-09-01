@@ -79,7 +79,7 @@ class AudioRecorderViewController: UINavigationController {
         }
         
         override func viewDidLoad() {
-            title = "Audio Recorder"
+            title = "录音"
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss(sender:)))
             edgesForExtendedLayout = []
             

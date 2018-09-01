@@ -12,21 +12,39 @@ import AssetsLibrary
 import Photos
 //import CoreActionSheetPicker
 
+protocol CreateRemindDelegate {
+    func onRemindSaved(newRemind: Remind)
+}
+
 @IBDesignable
-class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate {
+class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate, SelectLocationDelegate {
     
     @IBOutlet weak var fieldRemindText: UITextView!
     @IBOutlet weak var labelRepeat: UILabel!
     @IBOutlet weak var labelTime: UILabel!
-    @IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var fieldComment: UITextField!
+    @IBOutlet weak var btnLocation: UIButton!
     
     static let repeatActions = ["不重复", "每年", "每月", "每周", "每日"]
     var currentRepeatActionIndex = 0
     var currentDate = Date()
     
     var audioRecordController: AudioRecorderViewController?
+    var remind: Remind? {
+        didSet {
+            if let tempRemind = remind {
+                tempRemind.medias.forEach({(media) in
+                    if media.type == Media.MediaType.Audio {
+                        audioClips.append(media)
+                    } else if media.type == Media.MediaType.Image {
+                        images.append(media)
+                    }
+                })
+            }
+        }
+    }
     
+    var delegate: CreateRemindDelegate?
     
     @IBAction func cancel(_ sender: Any) {
         let alertController = UIAlertController(title: "系统提示", message: "您确定要取消吗？", preferredStyle: .alert)
@@ -40,39 +58,53 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     }
     
     @IBAction func save(_ sender: Any) {
-        let remind = Remind()
-        remind.content = fieldRemindText.text
-        remind.date = currentDate
+        var tempRemind = remind
+        if tempRemind == nil {
+            tempRemind = Remind()
+            tempRemind!.filePath = dataFilePath()
+        } else {
+            if let notifications = UIApplication.shared.scheduledLocalNotifications {
+                notifications.forEach({(notification) in
+                    if let userInfo = notification.userInfo {
+                        if let remindFilePath = userInfo["remindFilePath"] as? String {
+                            if remindFilePath == tempRemind?.filePath {
+                                UIApplication.shared.cancelLocalNotification(notification)
+                            }
+                        }
+                    }
+                })
+            }
+        }
+        tempRemind!.content = fieldRemindText.text
+        tempRemind!.date = currentDate
         let repeatTextIndex = CreateRemindViewController.repeatActions.index(of: labelRepeat.text!)!
         switch repeatTextIndex {
         case 0:
-            remind.repeatType = .Norepeat
+            tempRemind!.repeatType = .Norepeat
             break
         case 1:
-            remind.repeatType = .RepeatPerYear
+            tempRemind!.repeatType = .RepeatPerYear
             break
         case 2:
-            remind.repeatType = .RepeatPerMonth
+            tempRemind!.repeatType = .RepeatPerMonth
             break
         case 3:
-            remind.repeatType = .RepeatPerWeek
+            tempRemind!.repeatType = .RepeatPerWeek
             break
         case 4:
-            remind.repeatType = .RepeatPerDay
+            tempRemind!.repeatType = .RepeatPerDay
             break
         default:
             break
         }
-        
-        remind.repeatType = .Norepeat
-        remind.location = labelLocation.text
-        remind.remarks = fieldComment.text
-        remind.medias = []
+        tempRemind!.location = btnLocation.currentTitle
+        tempRemind!.remarks = fieldComment.text
+        tempRemind!.medias = []
         audioClips.forEach({(media) in
-            remind.medias.append(media)
+            tempRemind!.medias.append(media)
         })
         images.forEach({(media) in
-            remind.medias.append(media)
+            tempRemind!.medias.append(media)
         })
         
         let data = NSMutableData()
@@ -80,17 +112,18 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         let archiver = NSKeyedArchiver(forWritingWith: data)
         //将lists以对应Checklist关键字进行编码
         
-        archiver.encode(remind, forKey: "remind")
+        archiver.encode(tempRemind, forKey: "remind")
         //编码结束
         archiver.finishEncoding()
         //数据写入
-        data.write(toFile: dataFilePath(), atomically: true)
+        data.write(toFile: tempRemind!.filePath!, atomically: false)
         
         let notification = UILocalNotification()
-        notification.alertBody = remind.content
-        notification.fireDate = remind.date
-        notification.alertAction = remind.content
-        switch remind.repeatType {
+        notification.alertBody = tempRemind!.content
+        notification.fireDate = tempRemind!.date
+        notification.alertAction = tempRemind!.content
+        notification.userInfo = ["remindFilePath": tempRemind?.filePath as Any]
+        switch tempRemind!.repeatType {
         case .RepeatPerDay:
             notification.repeatInterval = .day
             break
@@ -106,9 +139,12 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         default:
             break;
         }
+        
         let settings = UIUserNotificationSettings(types: .sound, categories: nil)
         UIApplication.shared.registerUserNotificationSettings(settings)
         UIApplication.shared.scheduleLocalNotification(notification)
+        
+        delegate?.onRemindSaved(newRemind: tempRemind!)
         
         dismiss(animated: true, completion: nil)
     }
@@ -322,21 +358,45 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         layout.estimatedItemSize = CGSize(width: 100, height: 100)
         
-        labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showRepeatActions(_:))))
+        if let tempRemind = remind {
+            fieldRemindText.text = tempRemind.content
+            fieldComment.text = tempRemind.remarks
+            let formater = DateFormatter()
+            formater.dateFormat = "yyyy年MM月dd日 hh:mm"
+            labelTime.text = formater.string(from: tempRemind.date)
+            currentDate = tempRemind.date
+            labelRepeat.text = "不重复"
+            if tempRemind.repeatType == RemindRepeatType.RepeatPerDay {
+                labelRepeat.text = "每日"
+            } else if tempRemind.repeatType == RemindRepeatType.RepeatPerMonth {
+                labelRepeat.text = "每月"
+            } else if tempRemind.repeatType == RemindRepeatType.RepeatPerWeek {
+                labelRepeat.text = "每周"
+            } else if tempRemind.repeatType == RemindRepeatType.RepeatPerYear {
+                labelRepeat.text = "每年"
+            }
+            currentRepeatActionIndex = CreateRemindViewController.repeatActions.index(of: labelRepeat.text!)!
+            if audioClips.count > 0 {
+                updateAudioCollectionViewHeight()
+                audioCollectionView.reloadData()
+            }
+            
+            if images.count > 0 {
+                updateImageCollectionViewHeight()
+                imageCollectionView.reloadData()
+            }
+        }
+        labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
     
         currentDate = Date(timeInterval: 60 * 60, since: Date())
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy年MM月dd日 hh:mm"
         labelTime.text = dateFormater.string(from: currentDate)
-        labelTime.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showRepeatActions(_:))))
-        
-        labelLocation.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showRepeatActions(_:))))
+        labelTime.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
     }
     
-    @objc func showRepeatActions(_ tapGes : UITapGestureRecognizer) {
-        if tapGes.view == labelLocation {
-            
-        } else if tapGes.view == labelTime {
+    @objc func labelTapped(_ tapGes : UITapGestureRecognizer) {
+        if tapGes.view == labelTime {
             let datePicker = ActionSheetDatePicker(title: "选择日期和时间", datePickerMode: UIDatePickerMode.dateAndTime, selectedDate: currentDate, doneBlock: {
                 picker, value, index in
                 
@@ -408,5 +468,15 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         imageTableCell.frame = CGRect(x: imageTableCell.frame.origin.x, y: imageTableCell.frame.origin.y, width: imageTableCell.frame.width, height: CGFloat(height))
         
         tableView.reloadData()
+    }
+    
+    func selecteLocation(location: String) {
+        btnLocation.setTitle(location, for: .normal)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? SelectLocationViewController {
+            controller.delegate = self
+        }
     }
 }

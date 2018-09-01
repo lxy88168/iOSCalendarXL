@@ -17,12 +17,12 @@
 		872C0A47211F33EE00D813AD /* Lunar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A3F211F33EE00D813AD /* Lunar.m */; };
 		878B893E2129BE3C00BB970B /* SolarDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B893C2129BE3C00BB970B /* SolarDatePickerView.m */; };
 		878B89442129C7AC00BB970B /* LunarDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878B89422129C7AB00BB970B /* LunarDatePickerView.m */; };
+		A615954321378E160061E828 /* RemindDetailViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */; };
 		A626E70721300875008AD935 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70521300875008AD935 /* ImageCell.swift */; };
 		A626E70821300875008AD935 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626E70621300875008AD935 /* ImageCell.xib */; };
 		A626E70A21300C56008AD935 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70921300C56008AD935 /* Models.swift */; };
 		A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */; };
 		A626E70F2130DAFD008AD935 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */; };
-		A626E71621312DE0008AD935 /* libActionSheetPicker-3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */; };
 		A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A626E72221330F1F008AD935 /* StopButton@2x.png */; };
 		A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A626E72321330F1F008AD935 /* PlayButton@2x.png */; };
 		A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A626E72421330F1F008AD935 /* AudioRecorderViewController.xib */; };
@@ -30,10 +30,14 @@
 		A62922E2212FB3230032E1E9 /* RemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62922E1212FB3230032E1E9 /* RemindViewController.swift */; };
 		A62922E5212FD47F0032E1E9 /* RemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62922E3212FD47F0032E1E9 /* RemindCell.swift */; };
 		A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62922E4212FD47F0032E1E9 /* RemindCell.xib */; };
+		A63E6B8B21390BEB006FF099 /* RemindCell2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B8921390BEB006FF099 /* RemindCell2TableViewCell.swift */; };
+		A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */; };
+		A63E6B8D2139787D006FF099 /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */; };
+		A63E6B8F2139788E006FF099 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63E6B8E2139788E006FF099 /* MapKit.framework */; };
+		A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */; };
 		A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */; };
 		A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */; };
 		A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */; };
-		DB8727EDF6A15B04C9D3071E /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */; };
 		E46BB91A1E8B678400A1E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB9191E8B678400A1E1C7 /* main.m */; };
 		E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */; };
 		E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9211E8B678400A1E1C7 /* Main.storyboard */; };
@@ -68,13 +72,13 @@
 		878B893D2129BE3C00BB970B /* SolarDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolarDatePickerView.h; sourceTree = "<group>"; };
 		878B89422129C7AB00BB970B /* LunarDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LunarDatePickerView.m; sourceTree = "<group>"; };
 		878B89432129C7AC00BB970B /* LunarDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LunarDatePickerView.h; sourceTree = "<group>"; };
+		A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindDetailViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		A626E70521300875008AD935 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A626E70621300875008AD935 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		A626E70921300C56008AD935 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A626E70B21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXCollectionViewLeftOrRightAlignedLayout.h; sourceTree = "<group>"; };
 		A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXCollectionViewLeftOrRightAlignedLayout.m; sourceTree = "<group>"; };
 		A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
-		A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libActionSheetPicker-3.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A626E72221330F1F008AD935 /* StopButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StopButton@2x.png"; sourceTree = "<group>"; };
 		A626E72321330F1F008AD935 /* PlayButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayButton@2x.png"; sourceTree = "<group>"; };
 		A626E72421330F1F008AD935 /* AudioRecorderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioRecorderViewController.xib; sourceTree = "<group>"; };
@@ -82,6 +86,10 @@
 		A62922E1212FB3230032E1E9 /* RemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindViewController.swift; sourceTree = "<group>"; };
 		A62922E3212FD47F0032E1E9 /* RemindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindCell.swift; sourceTree = "<group>"; };
 		A62922E4212FD47F0032E1E9 /* RemindCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell.xib; sourceTree = "<group>"; };
+		A63E6B8921390BEB006FF099 /* RemindCell2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindCell2TableViewCell.swift; sourceTree = "<group>"; };
+		A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell2TableViewCell.xib; sourceTree = "<group>"; };
+		A63E6B8E2139788E006FF099 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKCalendarView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClipCell.swift; sourceTree = "<group>"; };
 		A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioClipCell.xib; sourceTree = "<group>"; };
@@ -116,8 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A626E71621312DE0008AD935 /* libActionSheetPicker-3.0.a in Frameworks */,
-				DB8727EDF6A15B04C9D3071E /* libPods-SKCalendarView.a in Frameworks */,
+				A63E6B8F2139788E006FF099 /* MapKit.framework in Frameworks */,
+				A63E6B8D2139787D006FF099 /* libPods-SKCalendarView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +150,7 @@
 				8723BA0B21356FE200AF7172 /* rqhsViewController.m */,
 				A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */,
 				A62922E1212FB3230032E1E9 /* RemindViewController.swift */,
+				A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -178,7 +187,7 @@
 		9224897CB7A6DAF68F20EEF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A626E71721312DE0008AD935 /* libActionSheetPicker-3.0.a */,
+				A63E6B8E2139788E006FF099 /* MapKit.framework */,
 				BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */,
 			);
 			name = Frameworks;
@@ -210,6 +219,9 @@
 				A626E70B21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.h */,
 				A626E70C21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m */,
 				A626E70E2130DAFD008AD935 /* MediaCollectionViewCell.swift */,
+				A63E6B8921390BEB006FF099 /* RemindCell2TableViewCell.swift */,
+				A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */,
+				A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -378,6 +390,7 @@
 				E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */,
 				E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */,
 				A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */,
+				A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */,
 				E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */,
 				872C0A46211F33EE00D813AD /* right@2x.png in Resources */,
 				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
@@ -419,7 +432,9 @@
 				A626E70A21300C56008AD935 /* Models.swift in Sources */,
 				E49B05121E8F76A8007D230C /* SKCalendarAnimationManage.m in Sources */,
 				A626E70721300875008AD935 /* ImageCell.swift in Sources */,
+				A615954321378E160061E828 /* RemindDetailViewControllerTableViewController.swift in Sources */,
 				E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */,
+				A63E6B8B21390BEB006FF099 /* RemindCell2TableViewCell.swift in Sources */,
 				872C0A31211F304A00D813AD /* wnlViewController.m in Sources */,
 				A626E70F2130DAFD008AD935 /* MediaCollectionViewCell.swift in Sources */,
 				A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */,
@@ -434,6 +449,7 @@
 				872C0A44211F33EE00D813AD /* CalendarDisplyManager.m in Sources */,
 				8723BA0C21356FE300AF7172 /* rqhsViewController.m in Sources */,
 				E49B05111E8F76A8007D230C /* SKCalendarManage.m in Sources */,
+				A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */,
 				A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */,
 				872C0A47211F33EE00D813AD /* Lunar.m in Sources */,
 				E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RemindViewController: UIViewController, UITableViewDataSource {
+class RemindViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var emptyDataView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -31,8 +31,23 @@ class RemindViewController: UIViewController, UITableViewDataSource {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var filePaths = [String]()
         reminds.removeAll()
+        reminds.append(contentsOf: RemindViewController.getRemindList())
+        
+        if reminds.count == 0 {
+            emptyDataView.isHidden = false
+            tableView.isHidden = true
+        } else {
+            emptyDataView.isHidden = true
+            tableView.isHidden = false
+        }
+        
+        tableView.reloadData()
+    }
+    
+    static func getRemindList() -> [Remind] {
+        var reminds = [Remind]()
+        var filePaths = [String]()
         let dir = RemindViewController.documentsDirectory()
         do {
             let array = try FileManager.default.contentsOfDirectory(atPath: dir)
@@ -53,8 +68,6 @@ class RemindViewController: UIViewController, UITableViewDataSource {
             }
         } catch let error as NSError {
             print("get file path error: \(error)")
-            let alert = UIAlertController(title: "系统提示", message: "遇到错误：\(error)", preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
         }
         
         filePaths.forEach({(path) in
@@ -74,16 +87,7 @@ class RemindViewController: UIViewController, UITableViewDataSource {
                 unarchiver.finishDecoding()
             }
         })
-        
-        if reminds.count == 0 {
-            emptyDataView.isHidden = false
-            tableView.isHidden = true
-        } else {
-            emptyDataView.isHidden = true
-            tableView.isHidden = false
-        }
-        
-        tableView.reloadData()
+        return reminds
     }
     
     //获取沙盒文件夹路径
@@ -113,6 +117,7 @@ class RemindViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "remindCell", for: indexPath) as! RemindCell
+        cell.selectionStyle = .none
         
         let remind = reminds[indexPath.row]
         cell.medias = remind.medias
@@ -136,50 +141,23 @@ class RemindViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        performSegue(withIdentifier: "showRemindDetail", sender: reminds[indexPath.row])
+        return indexPath
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didSelectRowAt: \(indexPath.row)")
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showRemindDetail" {
+            let detailController = segue.destination as! RemindDetailViewControllerTableViewController
+            detailController.remind = sender as? Remind
+        }
     }
-    */
 
 }
