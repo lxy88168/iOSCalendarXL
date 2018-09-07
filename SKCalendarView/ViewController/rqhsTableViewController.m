@@ -1,18 +1,18 @@
 //
-//  rqhsViewController.m
+//  rqhsTableViewController.m
 //  SKCalendarView
 //
 //  Created by tangming on 2018/8/2.
 //  Copyright © 2018年 武汉思古科技有限公司. All rights reserved.
 //
 
-#import "rqhsViewController.h"
+#import "rqhsTableViewController.h"
 
 #import "SolarDatePickerView.h"
 #import "LunarDatePickerView.h"
 #import "CalendarHeader.h"
 
-@interface rqhsViewController () <SolarDatePickerViewDelegate>
+@interface rqhsTableViewController () <SolarDatePickerViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *YangLiView;
 @property (weak, nonatomic) IBOutlet UIView *YingLiView;
 @property (weak, nonatomic) IBOutlet UIView *firstDateView;
@@ -41,7 +41,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *TSJianGeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *TSYangLiLabel;
 @property (weak, nonatomic) IBOutlet UILabel *TSYingLiLabel;
-
+@property (weak, nonatomic) IBOutlet UILabel *TSYangLi;
+@property (weak, nonatomic) IBOutlet UILabel *TSYingLi;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -50,30 +52,38 @@ static NSString *lunarDate = NULL;
 static int qianBtnSelected = 0;
 static int houBtnSelected = 0;
 
-@implementation rqhsViewController
+@implementation rqhsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     //View设置
-    self.firstDateView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.firstDateView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.firstDateView.layer.borderWidth =0.3;
     self.firstDateView.layer.cornerRadius=5.0;
-    self.secondDateView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.secondDateView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.secondDateView.layer.borderWidth =0.3;
     self.secondDateView.layer.cornerRadius=5.0;
-    self.YangLiView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.YangLiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.YangLiView.layer.borderWidth =0.3;
     self.YangLiView.layer.cornerRadius=5.0;
-    self.YingLiView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.YingLiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.YingLiView.layer.borderWidth =0.3;
     self.YingLiView.layer.cornerRadius=5.0;
-    self.xuanzheriqiView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.xuanzheriqiView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.xuanzheriqiView.layer.borderWidth =0.3;
     self.xuanzheriqiView.layer.cornerRadius=5.0;
-    self.jiangetianshuView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.jiangetianshuView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.jiangetianshuView.layer.borderWidth =0.3;
     self.jiangetianshuView.layer.cornerRadius=5.0;
+    
+    [self SwitchViews:NULL];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到view上
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     
     //Button设置
     self.solarResultBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -83,6 +93,7 @@ static int houBtnSelected = 0;
     
     //其他设置
     [self.JianGeTextField addTarget:self action:@selector(textFieldDidchange:) forControlEvents:UIControlEventEditingChanged];
+    self.JianGeTextField.delegate = self;
     [self.qianBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [self.houBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
@@ -93,14 +104,26 @@ static int houBtnSelected = 0;
     self.btn.alpha = 0.3;
     [self.view addSubview:self.btn];
     
+    //button隐藏
     self.HeLabel.alpha = 0;
+    self.YangLiLabel.alpha = 0;
+    self.YingLiLabel.alpha = 0;
+    self.JianGeLabel.alpha = 0;
+    self.TSJianGeLabel.alpha = 0;
+    self.TSYangLiLabel.alpha = 0;
+    self.TSYingLiLabel.alpha = 0;
+    self.TSYangLi.alpha = 0;
+    self.TSYingLi.alpha = 0;
     
+    [self qianBtnClick:NULL];
     
     SolarDatePickerView *solarDateView = [[SolarDatePickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300)];
     solarDateView.delegate = self;
+    solarDateView.hidden = YES;
     
     LunarDatePickerView *lunarDateView = [[LunarDatePickerView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300)];
     lunarDateView.delegate = self;
+    lunarDateView.hidden = YES;
     
     //Button初始化显示
     NSDate *date=[NSDate date];
@@ -146,6 +169,17 @@ static int houBtnSelected = 0;
     self.lunarDateView = lunarDateView;
 }
 
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    [_JianGeTextField resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //返回一个BOOL值，指明是否允许在按下回车键时结束编辑
+    //如果允许要调用resignFirstResponder 方法，这回导致结束编辑，而键盘会被收起
+    [self.JianGeTextField resignFirstResponder];//查一下resign这个单词的意思就明白这个方法了
+    return YES;
+}
+
 - (void)textFieldDidchange:(UITextField *)textField {
     NSString *textString = textField.text;
     if (![self inputShouldNumber:textString] && textString.length > 0) {
@@ -172,6 +206,7 @@ static int houBtnSelected = 0;
 // 显示
 - (IBAction)solarResultBtnClick:(id)sender {
     self.btn.hidden = NO;
+    self.solarDateView.hidden = NO;
     
     [UIView animateWithDuration:0.3 animations:^{
         self.solarDateView.frame = CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300);
@@ -181,7 +216,7 @@ static int houBtnSelected = 0;
 
 - (IBAction)lunarResultBtnClick:(id)sender {
     self.btn.hidden = NO;
-    
+    self.lunarDateView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.lunarDateView.frame = CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300);
         [self.lunarDateView show];
@@ -190,7 +225,7 @@ static int houBtnSelected = 0;
 
 - (IBAction)firstDateBtnClick:(id)sender {
     self.btn.hidden = NO;
-    
+    self.solarDateView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.solarDateView.frame = CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300);
         [self.solarDateView show];
@@ -199,7 +234,7 @@ static int houBtnSelected = 0;
 
 - (IBAction)secondDateBtnClick:(id)sender {
     self.btn.hidden = NO;
-    
+    self.lunarDateView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.lunarDateView.frame = CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300);
         [self.lunarDateView show];
@@ -208,7 +243,7 @@ static int houBtnSelected = 0;
 
 - (IBAction)selectDateBtnClick:(id)sender {
     self.btn.hidden = NO;
-    
+    self.solarDateView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         self.solarDateView.frame = CGRectMake(0, self.view.frame.size.height - 300, self.view.frame.size.width, 300);
         [self.solarDateView show];
@@ -242,6 +277,9 @@ static int houBtnSelected = 0;
 
 - (IBAction)firstSecondBtnSearch:(id)sender {
     self.HeLabel.alpha = 1;
+    self.YangLiLabel.alpha = 1;
+    self.YingLiLabel.alpha = 1;
+    self.JianGeLabel.alpha = 1;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
@@ -303,6 +341,7 @@ static int houBtnSelected = 0;
     [self.selectDateBtn setTitle: timer forState: UIControlStateNormal];
     
     self.btn.hidden = YES;
+    self.solarDateView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self.solarDateView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300);
     }];
@@ -371,6 +410,7 @@ static int houBtnSelected = 0;
     
     //    [self.lunarResultBtn setTitle: timer forState: UIControlStateNormal];
     self.btn.hidden = YES;
+    self.lunarDateView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self.lunarDateView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300);
     }];
@@ -390,10 +430,17 @@ static int houBtnSelected = 0;
 }
 
 - (IBAction)JianGeTextFieldClick:(id)sender {
-    [self.JianGeTextField setText:@""];
+//    [self.JianGeTextField setText:@""];
+    [self.JianGeTextField resignFirstResponder];
 }
 
 - (IBAction)JianGeSearchBtnClick:(id)sender {
+    self.TSJianGeLabel.alpha = 1;
+    self.TSYangLiLabel.alpha = 1;
+    self.TSYingLiLabel.alpha = 1;
+    self.TSYangLi.alpha = 1;
+    self.TSYingLi.alpha = 1;
+    
     if([self.JianGeTextField.text isEqual:@"请输入间隔天数"] || [self.JianGeTextField.text isEqual:@""])
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"请输入间隔天数" preferredStyle:UIAlertControllerStyleAlert];
@@ -458,7 +505,7 @@ static int houBtnSelected = 0;
             NSDate *theDateSolar;
             if(dis!=0){
                 NSTimeInterval  oneDay = 24*60*60*1;  //1天的长度
-//                theDateSolar = [nowDate initWithTimeIntervalSinceNow: +oneDay*dis ];
+                //                theDateSolar = [nowDate initWithTimeIntervalSinceNow: +oneDay*dis ];
                 //or
                 theDateSolar = [nowDate initWithTimeIntervalSinceNow: -oneDay*dis ];
             }else{
@@ -499,9 +546,84 @@ static int houBtnSelected = 0;
 - (void)datePickerViewCancelBtnClickDelegate {
     NSLog(@"取消点击");
     self.btn.hidden = YES;
+    self.solarDateView.hidden = YES;
+    self.lunarDateView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{
         self.solarDateView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300);
+        self.lunarDateView.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 300);
     }];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete implementation, return the number of rows
+    return 1;
+}
+
+/*
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ 
+ // Configure the cell...
+ 
+ return cell;
+ }
+ */
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 @end
+

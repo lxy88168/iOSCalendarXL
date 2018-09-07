@@ -88,28 +88,28 @@
     }];
     
     
-    // 边线
-    self.rightLine = [UIImageView new];
-    [self addSubview:self.rightLine];
-    self.rightLine.backgroundColor = [UIColor lightGrayColor];
-    [self.rightLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self);
-        make.right.equalTo(self);
-        make.bottom.equalTo(self);
-        
-        make.width.mas_offset(0.5);
-    }];
-    
-    self.bottomLine = [UIImageView new];
-    [self addSubview:self.bottomLine];
-    self.bottomLine.backgroundColor = [UIColor lightGrayColor];
-    [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
-        make.right.equalTo(self);
-        make.bottom.equalTo(self);
-        
-        make.height.mas_offset(0.5);
-    }];
+//    // 边线
+//    self.rightLine = [UIImageView new];
+//    [self addSubview:self.rightLine];
+//    self.rightLine.backgroundColor = [UIColor lightGrayColor];
+//    [self.rightLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self);
+//        make.right.equalTo(self);
+//        make.bottom.equalTo(self);
+//        
+//        make.width.mas_offset(0.5);
+//    }];
+//    
+//    self.bottomLine = [UIImageView new];
+//    [self addSubview:self.bottomLine];
+//    self.bottomLine.backgroundColor = [UIColor lightGrayColor];
+//    [self.bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self);
+//        make.right.equalTo(self);
+//        make.bottom.equalTo(self);
+//        
+//        make.height.mas_offset(0.5);
+//    }];
 }
 
 #pragma mark - 外部设置

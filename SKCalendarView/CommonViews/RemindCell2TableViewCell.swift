@@ -10,6 +10,9 @@ import UIKit
 
 class RemindCell2TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var labelRemindContent: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="RemindCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sr-Zs-oQ8">
+                        <rect key="frame" x="8" y="8" width="304" height="28"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-2W-lj7">
+                                <rect key="frame" x="52" y="0.0" width="1" height="28"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="TT0-qx-mEK"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开会" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpB-47-IRb">
+                                <rect key="frame" x="61" y="3" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="9:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZM-Gs-94U">
+                                <rect key="frame" x="8" y="4" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M3T-2W-lj7" secondAttribute="bottom" id="H19-A4-EAl"/>
+                            <constraint firstItem="M3T-2W-lj7" firstAttribute="leading" secondItem="PZM-Gs-94U" secondAttribute="trailing" constant="8" id="HSD-JS-d3t"/>
+                            <constraint firstItem="PZM-Gs-94U" firstAttribute="leading" secondItem="2sr-Zs-oQ8" secondAttribute="leading" constant="8" id="JAn-j4-Ahb"/>
+                            <constraint firstItem="gpB-47-IRb" firstAttribute="centerY" secondItem="2sr-Zs-oQ8" secondAttribute="centerY" id="SE0-3h-kh1"/>
+                            <constraint firstItem="PZM-Gs-94U" firstAttribute="centerY" secondItem="2sr-Zs-oQ8" secondAttribute="centerY" id="iNB-so-eql"/>
+                            <constraint firstAttribute="trailing" secondItem="gpB-47-IRb" secondAttribute="trailing" constant="8" id="kuA-J6-4kS"/>
+                            <constraint firstItem="gpB-47-IRb" firstAttribute="leading" secondItem="M3T-2W-lj7" secondAttribute="trailing" constant="8" id="p90-R4-YzG"/>
+                            <constraint firstItem="M3T-2W-lj7" firstAttribute="top" secondItem="2sr-Zs-oQ8" secondAttribute="top" id="x7t-pA-xBJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2sr-Zs-oQ8" secondAttribute="trailing" constant="8" id="7ec-RG-dJE"/>
+                    <constraint firstAttribute="bottom" secondItem="2sr-Zs-oQ8" secondAttribute="bottom" constant="8" id="NYr-C9-BKW"/>
+                    <constraint firstItem="2sr-Zs-oQ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gWz-RA-LoH"/>
+                    <constraint firstItem="2sr-Zs-oQ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hIY-ht-uJF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="labelContent" destination="gpB-47-IRb" id="BVp-VQ-gFq"/>
+                <outlet property="labelTime" destination="PZM-Gs-94U" id="RiX-1m-Dbn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

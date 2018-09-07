@@ -34,8 +34,18 @@
             self.frame = frame;
             [self customView];
         }
+        self.backgroundColor = [UIColor redColor];
     }
     
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if ([super initWithCoder:aDecoder]) {
+        if (self) {
+            [self customView];
+        }
+    }
     return self;
 }
 
@@ -102,8 +112,9 @@
         make.left.equalTo(self);
         make.right.equalTo(self);
         
-        make.height.mas_offset(self.frame.size.height / 7.5);
-        make.height.mas_greaterThanOrEqualTo(40).priorityHigh();
+//        make.height.mas_offset(self.frame.size.height / 7.5);
+//        make.height.mas_greaterThanOrEqualTo(40).priorityHigh();
+        make.height.mas_equalTo(40);
     }];
 
     // 日期
