@@ -40,6 +40,8 @@
 		A63E6B9B2140F97D006FF099 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9A2140F97D006FF099 /* TestView.m */; };
 		A63E6BA321413025006FF099 /* RemindCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BA121413025006FF099 /* RemindCell2.m */; };
 		A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BA221413025006FF099 /* RemindCell2.xib */; };
+		A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BAA2142D0E9006FF099 /* ThemeCell.m */; };
+		A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */; };
 		A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */; };
 		A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */; };
 		A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */; };
@@ -103,6 +105,9 @@
 		A63E6BA021413025006FF099 /* RemindCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindCell2.h; sourceTree = "<group>"; };
 		A63E6BA121413025006FF099 /* RemindCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindCell2.m; sourceTree = "<group>"; };
 		A63E6BA221413025006FF099 /* RemindCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell2.xib; sourceTree = "<group>"; };
+		A63E6BA92142D0E9006FF099 /* ThemeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeCell.h; sourceTree = "<group>"; };
+		A63E6BAA2142D0E9006FF099 /* ThemeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeCell.m; sourceTree = "<group>"; };
+		A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKCalendarView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClipCell.swift; sourceTree = "<group>"; };
 		A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioClipCell.xib; sourceTree = "<group>"; };
@@ -240,6 +245,9 @@
 				A63E6BA021413025006FF099 /* RemindCell2.h */,
 				A63E6BA121413025006FF099 /* RemindCell2.m */,
 				A63E6BA221413025006FF099 /* RemindCell2.xib */,
+				A63E6BA92142D0E9006FF099 /* ThemeCell.h */,
+				A63E6BAA2142D0E9006FF099 /* ThemeCell.m */,
+				A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -424,6 +432,7 @@
 				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
 				A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */,
 				872C0A43211F33EE00D813AD /* left@2x.png in Resources */,
+				A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */,
 				A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +490,7 @@
 				A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */,
 				A63E6B9B2140F97D006FF099 /* TestView.m in Sources */,
 				A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */,
+				A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */,
 				872C0A47211F33EE00D813AD /* Lunar.m in Sources */,
 				A63E6B94213ADD8A006FF099 /* LocationNameCell.swift in Sources */,
 				E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */,
