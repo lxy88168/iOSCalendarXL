@@ -27,9 +27,13 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     var querying = false
     var locationNames = [String]()
     var selectedLocationName: String?
+    var userClickedLocation = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cellNib = UINib(nibName: "LocationNameCell", bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: "locationNameCell")
         
         locationMgr.delegate = self
         locationMgr.requestWhenInUseAuthorization()
@@ -53,8 +57,13 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     }
     
     func pan(_ gesture: UIPanGestureRecognizer) {
-        //print("pan")
-        queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
+        switch gesture.state {
+        case .ended:
+            queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
+            break;
+        default:
+            break;
+        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -84,7 +93,7 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
             return
         }
         mapView.setCenter(coordinate, animated: true)
-        queryNames(location: mapView.userLocation.location!)
+        userClickedLocation = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,8 +105,8 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "locationNameCell", for: indexPath)
-        cell.textLabel?.text = locationNames[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationNameCell", for: indexPath) as! LocationNameCell
+        cell.labelTitle.text = locationNames[indexPath.row]
         return cell
     }
     
@@ -109,17 +118,20 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
 //        locations.forEach({(location) in
 //            print("location: \(location)")
 //        })
-        queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
+        if userClickedLocation {
+            userClickedLocation = false
+            queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             print("current location: \(mapView.userLocation.location)")
+            userClickedLocation = true
             guard let coordinate = mapView.userLocation.location?.coordinate else {
                 return
             }
             mapView.setCenter(coordinate, animated: true)
-            queryNames(location: mapView.userLocation.location!)
         }
     }
     

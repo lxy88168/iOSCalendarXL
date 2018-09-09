@@ -26,6 +26,8 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
     
     var remind: Remind? {
         didSet {
+            audioClips.removeAll()
+            images.removeAll()
             if let tempRemind = remind {
                 tempRemind.medias.forEach({(media) in
                     if media.type == Media.MediaType.Audio {

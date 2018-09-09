@@ -17,9 +17,9 @@ protocol CreateRemindDelegate {
 }
 
 @IBDesignable
-class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate, SelectLocationDelegate {
+class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate, SelectLocationDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var fieldRemindText: UITextView!
+    @IBOutlet weak var fieldRemindText: UITextField!
     @IBOutlet weak var labelRepeat: UILabel!
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var fieldComment: UITextField!
@@ -55,9 +55,13 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
+        fieldRemindText.resignFirstResponder()
+        fieldComment.resignFirstResponder()
     }
     
     @IBAction func save(_ sender: Any) {
+        fieldComment.resignFirstResponder()
+        fieldRemindText.resignFirstResponder()
         var tempRemind = remind
         if tempRemind == nil {
             tempRemind = Remind()
@@ -75,7 +79,7 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
                 })
             }
         }
-        tempRemind!.content = fieldRemindText.text
+        tempRemind!.content = fieldRemindText.text!
         tempRemind!.date = currentDate
         let repeatTextIndex = CreateRemindViewController.repeatActions.index(of: labelRepeat.text!)!
         switch repeatTextIndex {
@@ -123,6 +127,7 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         notification.fireDate = tempRemind!.date
         notification.alertAction = tempRemind!.content
         notification.userInfo = ["remindFilePath": tempRemind?.filePath as Any]
+        notification.soundName = UILocalNotificationDefaultSoundName
         switch tempRemind!.repeatType {
         case .RepeatPerDay:
             notification.repeatInterval = .day
@@ -221,11 +226,18 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     @IBAction func addAudioTapped(_ sender: Any) {
+        fieldComment.resignFirstResponder()
+        fieldRemindText.resignFirstResponder()
         let sheet = UIAlertController(title: "选择音频", message: "", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let pickAction = UIAlertAction(title: "从媒体库选择", style: .default, handler: {(action) in
-            let picker = UIDocumentPickerViewController(documentTypes: ["public.mp3"], in: UIDocumentPickerMode.open)
+            let picker = UIDocumentPickerViewController(documentTypes: ["public.mp3 (kUTTypeMP3)", "com.microsoft.waveform-​audio", "public.audio (kUTTypeAudio)", ], in: UIDocumentPickerMode.open)
             picker.delegate = self
             if #available(iOS 11.0, *) {
                 picker.allowsMultipleSelection = true
@@ -289,6 +301,8 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     
     
     @IBAction func addImageTapped(_ sender: Any) {
+        fieldComment.resignFirstResponder()
+        fieldRemindText.resignFirstResponder()
         let sheet = UIAlertController(title: "选择图片", message: "", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let pickAction = UIAlertAction(title: "从媒体库选择", style: .default, handler: {(action) in
@@ -358,6 +372,22 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         layout.estimatedItemSize = CGSize(width: 100, height: 100)
         
+        labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
+    
+        currentDate = Date(timeInterval: 60 * 60, since: Date())
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy年MM月dd日 hh:mm"
+        labelTime.text = dateFormater.string(from: currentDate)
+        labelTime.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
+        
+        fieldRemindText.delegate = self
+        fieldComment.delegate = self
+        
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(tableViewTapped(_:)))
+        
+        tableView.addGestureRecognizer(tap)
+        
         if let tempRemind = remind {
             fieldRemindText.text = tempRemind.content
             fieldComment.text = tempRemind.remarks
@@ -386,16 +416,16 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
                 imageCollectionView.reloadData()
             }
         }
-        labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
+    }
     
-        currentDate = Date(timeInterval: 60 * 60, since: Date())
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy年MM月dd日 hh:mm"
-        labelTime.text = dateFormater.string(from: currentDate)
-        labelTime.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
+    func tableViewTapped(_ gesture: UITapGestureRecognizer) {
+        fieldComment.resignFirstResponder()
+        fieldRemindText.resignFirstResponder()
     }
     
     @objc func labelTapped(_ tapGes : UITapGestureRecognizer) {
+        fieldComment.resignFirstResponder()
+        fieldRemindText.resignFirstResponder()
         if tapGes.view == labelTime {
             let datePicker = ActionSheetDatePicker(title: "选择日期和时间", datePickerMode: UIDatePickerMode.dateAndTime, selectedDate: currentDate, doneBlock: {
                 picker, value, index in

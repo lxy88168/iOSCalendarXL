@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8723BA0C21356FE300AF7172 /* rqhsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8723BA0B21356FE200AF7172 /* rqhsViewController.m */; };
+		8723BA0C21356FE300AF7172 /* rqhsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8723BA0B21356FE200AF7172 /* rqhsTableViewController.m */; };
 		872C0A31211F304A00D813AD /* wnlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A30211F304A00D813AD /* wnlViewController.m */; };
 		872C0A42211F33EE00D813AD /* Solar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A37211F33EE00D813AD /* Solar.m */; };
 		872C0A43211F33EE00D813AD /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 872C0A38211F33EE00D813AD /* left@2x.png */; };
@@ -35,6 +35,13 @@
 		A63E6B8D2139787D006FF099 /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */; };
 		A63E6B8F2139788E006FF099 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63E6B8E2139788E006FF099 /* MapKit.framework */; };
 		A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */; };
+		A63E6B94213ADD8A006FF099 /* LocationNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B92213ADD8A006FF099 /* LocationNameCell.swift */; };
+		A63E6B95213ADD8A006FF099 /* LocationNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6B93213ADD8A006FF099 /* LocationNameCell.xib */; };
+		A63E6B9B2140F97D006FF099 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9A2140F97D006FF099 /* TestView.m */; };
+		A63E6BA321413025006FF099 /* RemindCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BA121413025006FF099 /* RemindCell2.m */; };
+		A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BA221413025006FF099 /* RemindCell2.xib */; };
+		A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BAA2142D0E9006FF099 /* ThemeCell.m */; };
+		A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */; };
 		A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */; };
 		A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */; };
 		A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */; };
@@ -53,8 +60,8 @@
 
 /* Begin PBXFileReference section */
 		6841B559C4AF4A4F31494B4D /* Pods-SKCalendarView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKCalendarView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKCalendarView/Pods-SKCalendarView.debug.xcconfig"; sourceTree = "<group>"; };
-		8723BA0A21356FE200AF7172 /* rqhsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rqhsViewController.h; sourceTree = "<group>"; };
-		8723BA0B21356FE200AF7172 /* rqhsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rqhsViewController.m; sourceTree = "<group>"; };
+		8723BA0A21356FE200AF7172 /* rqhsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rqhsTableViewController.h; sourceTree = "<group>"; };
+		8723BA0B21356FE200AF7172 /* rqhsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rqhsTableViewController.m; sourceTree = "<group>"; };
 		872C0A2F211F304A00D813AD /* wnlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wnlViewController.h; sourceTree = "<group>"; };
 		872C0A30211F304A00D813AD /* wnlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wnlViewController.m; sourceTree = "<group>"; };
 		872C0A37211F33EE00D813AD /* Solar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solar.m; sourceTree = "<group>"; };
@@ -90,6 +97,17 @@
 		A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell2TableViewCell.xib; sourceTree = "<group>"; };
 		A63E6B8E2139788E006FF099 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
+		A63E6B92213ADD8A006FF099 /* LocationNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNameCell.swift; sourceTree = "<group>"; };
+		A63E6B93213ADD8A006FF099 /* LocationNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationNameCell.xib; sourceTree = "<group>"; };
+		A63E6B992140F97D006FF099 /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		A63E6B9A2140F97D006FF099 /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		A63E6B9C21410870006FF099 /* SKCalendarView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SKCalendarView.entitlements; sourceTree = "<group>"; };
+		A63E6BA021413025006FF099 /* RemindCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindCell2.h; sourceTree = "<group>"; };
+		A63E6BA121413025006FF099 /* RemindCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindCell2.m; sourceTree = "<group>"; };
+		A63E6BA221413025006FF099 /* RemindCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell2.xib; sourceTree = "<group>"; };
+		A63E6BA92142D0E9006FF099 /* ThemeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeCell.h; sourceTree = "<group>"; };
+		A63E6BAA2142D0E9006FF099 /* ThemeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeCell.m; sourceTree = "<group>"; };
+		A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
 		A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKCalendarView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClipCell.swift; sourceTree = "<group>"; };
 		A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioClipCell.xib; sourceTree = "<group>"; };
@@ -146,8 +164,8 @@
 			children = (
 				872C0A2F211F304A00D813AD /* wnlViewController.h */,
 				872C0A30211F304A00D813AD /* wnlViewController.m */,
-				8723BA0A21356FE200AF7172 /* rqhsViewController.h */,
-				8723BA0B21356FE200AF7172 /* rqhsViewController.m */,
+				8723BA0A21356FE200AF7172 /* rqhsTableViewController.h */,
+				8723BA0B21356FE200AF7172 /* rqhsTableViewController.m */,
 				A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */,
 				A62922E1212FB3230032E1E9 /* RemindViewController.swift */,
 				A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */,
@@ -222,6 +240,14 @@
 				A63E6B8921390BEB006FF099 /* RemindCell2TableViewCell.swift */,
 				A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */,
 				A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */,
+				A63E6B92213ADD8A006FF099 /* LocationNameCell.swift */,
+				A63E6B93213ADD8A006FF099 /* LocationNameCell.xib */,
+				A63E6BA021413025006FF099 /* RemindCell2.h */,
+				A63E6BA121413025006FF099 /* RemindCell2.m */,
+				A63E6BA221413025006FF099 /* RemindCell2.xib */,
+				A63E6BA92142D0E9006FF099 /* ThemeCell.h */,
+				A63E6BAA2142D0E9006FF099 /* ThemeCell.m */,
+				A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -247,6 +273,7 @@
 		E46BB9171E8B678400A1E1C7 /* SKCalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				A63E6B9C21410870006FF099 /* SKCalendarView.entitlements */,
 				A647412D212E3945008C8EC0 /* CommonViews */,
 				872C0A36211F33EE00D813AD /* RQHSHead */,
 				872C0A6B211FD2D200D813AD /* DatePickerHead */,
@@ -319,6 +346,8 @@
 				E49B050C1E8F76A8007D230C /* SKCalendarCollectionViewCell.m */,
 				E49B050F1E8F76A8007D230C /* SKWeekCollectionViewCell.h */,
 				E49B05101E8F76A8007D230C /* SKWeekCollectionViewCell.m */,
+				A63E6B992140F97D006FF099 /* TestView.h */,
+				A63E6B9A2140F97D006FF099 /* TestView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,9 +385,14 @@
 				TargetAttributes = {
 					E46BB9141E8B678400A1E1C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = U8F48NMX4F;
+						DevelopmentTeam = 2FQ6D7MFY2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -388,14 +422,17 @@
 				A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */,
 				A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */,
 				E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */,
+				A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */,
 				E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */,
 				A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */,
 				A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */,
 				E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */,
+				A63E6B95213ADD8A006FF099 /* LocationNameCell.xib in Resources */,
 				872C0A46211F33EE00D813AD /* right@2x.png in Resources */,
 				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
 				A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */,
 				872C0A43211F33EE00D813AD /* left@2x.png in Resources */,
+				A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */,
 				A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,12 +483,16 @@
 				E49B05141E8F76A8007D230C /* SKCalendarCollectionViewCell.m in Sources */,
 				878B893E2129BE3C00BB970B /* SolarDatePickerView.m in Sources */,
 				A62922E2212FB3230032E1E9 /* RemindViewController.swift in Sources */,
+				A63E6BA321413025006FF099 /* RemindCell2.m in Sources */,
 				872C0A44211F33EE00D813AD /* CalendarDisplyManager.m in Sources */,
-				8723BA0C21356FE300AF7172 /* rqhsViewController.m in Sources */,
+				8723BA0C21356FE300AF7172 /* rqhsTableViewController.m in Sources */,
 				E49B05111E8F76A8007D230C /* SKCalendarManage.m in Sources */,
 				A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */,
+				A63E6B9B2140F97D006FF099 /* TestView.m in Sources */,
 				A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */,
+				A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */,
 				872C0A47211F33EE00D813AD /* Lunar.m in Sources */,
+				A63E6B94213ADD8A006FF099 /* LocationNameCell.swift in Sources */,
 				E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */,
 				872C0A45211F33EE00D813AD /* LunarSolarTransform.m in Sources */,
 				878B89442129C7AC00BB970B /* LunarDatePickerView.m in Sources */,
@@ -575,11 +616,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = U8F48NMX4F;
+				CODE_SIGN_ENTITLEMENTS = SKCalendarView/SKCalendarView.entitlements;
+				DEVELOPMENT_TEAM = 2FQ6D7MFY2;
 				INFOPLIST_FILE = SKCalendarView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView1;
+				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SKCalendarView/CommonViews/SKCalendarView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -594,11 +636,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = U8F48NMX4F;
+				CODE_SIGN_ENTITLEMENTS = SKCalendarView/SKCalendarView.entitlements;
+				DEVELOPMENT_TEAM = 2FQ6D7MFY2;
 				INFOPLIST_FILE = SKCalendarView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView1;
+				PRODUCT_BUNDLE_IDENTIFIER = shigukeji.xkl.SKCalendarView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SKCalendarView/CommonViews/SKCalendarView-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

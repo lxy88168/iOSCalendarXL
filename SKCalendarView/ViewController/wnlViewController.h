@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface wnlViewController : UIViewController
+@interface wnlViewController : UITableViewController
 
 @end
