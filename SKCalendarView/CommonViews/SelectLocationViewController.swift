@@ -27,7 +27,7 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     var querying = false
     var locationNames = [String]()
     var selectedLocationName: String?
-    var userClickedLocation = false;
+    var needUpdateUserLocation = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,17 +38,18 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
         locationMgr.delegate = self
         locationMgr.requestWhenInUseAuthorization()
         locationMgr.startUpdatingLocation()
+        locationMgr.desiredAccuracy = 5
         
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
         mapView.showsBuildings = true
+        mapView.delegate = self
         let panGestureRecognizer = UIPanGestureRecognizer()
         panGestureRecognizer.delegate = self
         panGestureRecognizer.addTarget(self, action: #selector(pan(_:)))
         mapView.addGestureRecognizer(panGestureRecognizer)
         
         btnConfirm.isEnabled = false
-//        queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -59,6 +60,7 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     func pan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .ended:
+            needUpdateUserLocation = false
             queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
             break;
         default:
@@ -89,11 +91,11 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     }
     
     @IBAction func btnLocationTapped(_ sender: Any) {
+        needUpdateUserLocation = true
         guard let coordinate = mapView.userLocation.location?.coordinate else {
             return
         }
         mapView.setCenter(coordinate, animated: true)
-        userClickedLocation = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,8 +120,7 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
 //        locations.forEach({(location) in
 //            print("location: \(location)")
 //        })
-        if userClickedLocation {
-            userClickedLocation = false
+        if needUpdateUserLocation {
             queryNames(location: CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude))
         }
     }
@@ -127,12 +128,15 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse {
             print("current location: \(mapView.userLocation.location)")
-            userClickedLocation = true
             guard let coordinate = mapView.userLocation.location?.coordinate else {
                 return
             }
             mapView.setCenter(coordinate, animated: true)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("userLocation: \(userLocation)")
     }
     
     func queryNames(location: CLLocation) {
@@ -146,19 +150,19 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
             self.querying = false
             if error != nil {
                 print("error: \(error!)")
-                let alert = UIAlertController(title: "系统提示", message: error?.localizedDescription, preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: {(action) in
-//                    self.dismiss(animated: true, completion: nil)
-                })
-                let retryAction = UIAlertAction(title: "重试", style: .default, handler: {(action) in
-                    self.queryNames(location: location)
-                })
-                alert.addAction(cancelAction)
-                alert.addAction(retryAction)
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "系统提示", message: error?.localizedDescription, preferredStyle: .alert)
+//                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: {(action) in
+////                    self.dismiss(animated: true, completion: nil)
+//                })
+//                let retryAction = UIAlertAction(title: "重试", style: .default, handler: {(action) in
+//                    self.queryNames(location: location)
+//                })
+//                alert.addAction(cancelAction)
+//                alert.addAction(retryAction)
+//                self.present(alert, animated: true, completion: nil)
             } else {
                 placeMarks?.forEach({(placeMark) in
-                    print("placemark: \(placeMark)")
+                    print("placemark: \(placeMark.subLocality)")
                     if placeMark.thoroughfare != nil {
                         var name = placeMark.thoroughfare!
                         if placeMark.subThoroughfare != nil {

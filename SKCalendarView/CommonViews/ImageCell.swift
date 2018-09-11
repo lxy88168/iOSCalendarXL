@@ -15,8 +15,9 @@ class ImageCell: MediaCollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        clipsToBounds = false
         image.layer.cornerRadius = 8
+        image.layer.masksToBounds = true
         image.layer.borderColor = UIColor.gray.cgColor
         image.layer.borderWidth = 1
     }

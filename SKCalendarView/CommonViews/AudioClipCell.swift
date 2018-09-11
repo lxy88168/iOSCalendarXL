@@ -92,6 +92,7 @@ class AudioClipCell: MediaCollectionViewCell, AVAudioPlayerDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = false
         viewBg.layer.cornerRadius = 8
         viewBg.layer.borderWidth = 1
         viewBg.layer.borderColor = UIColor.gray.cgColor

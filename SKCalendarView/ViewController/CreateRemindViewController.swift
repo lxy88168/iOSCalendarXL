@@ -80,7 +80,12 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
             }
         }
         tempRemind!.content = fieldRemindText.text!
-        tempRemind!.date = currentDate
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([Calendar.Component.year, .month, .day, .hour, .minute], from: currentDate)
+        tempRemind!.date = calendar.date(from: components)!
+        print(tempRemind!.date)
+        
         let repeatTextIndex = CreateRemindViewController.repeatActions.index(of: labelRepeat.text!)!
         switch repeatTextIndex {
         case 0:
@@ -358,19 +363,22 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         cellNib = UINib(nibName: "ImageCell", bundle: nil)
         imageCollectionView.register(cellNib, forCellWithReuseIdentifier: "imageCell")
         
+        audioCollectionView.clipsToBounds = false
+        imageCollectionView.clipsToBounds = false
+        
         var layout =  audioCollectionView.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 70, height: 70)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
         layout =  imageCollectionView.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 70, height: 70)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
         labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
     
@@ -465,17 +473,17 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     @IBOutlet weak var imageTableCell: UITableViewCell!
     
     func updateAudioCollectionViewHeight() {
-        let hCount = Int(audioCollectionView.frame.width) / 100
+        let hCount = Int(audioCollectionView.frame.width) / 70
         var row = audioClips.count / hCount
         row = audioClips.count % hCount == 0 ? row : row + 1
         if audioCollectionViewHeightConstraint == nil {
-            audioCollectionViewHeightConstraint = NSLayoutConstraint(item: audioCollectionView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 100))
+            audioCollectionViewHeightConstraint = NSLayoutConstraint(item: audioCollectionView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 70))
             
             audioCollectionView.addConstraint(audioCollectionViewHeightConstraint!)
         } else {
-            audioCollectionViewHeightConstraint?.constant = CGFloat(row * 100)
+            audioCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 100)
+        let height = 43.5 + Double(row * 70)
         
         audioTableCell.frame = CGRect(x: audioTableCell.frame.origin.x, y: audioTableCell.frame.origin.y, width: audioTableCell.frame.width, height: CGFloat(height))
         
@@ -483,17 +491,17 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     }
     
     func updateImageCollectionViewHeight() {
-        let hCount = Int(imageCollectionView.frame.width) / 100
+        let hCount = Int(imageCollectionView.frame.width) / 70
         var row = images.count / hCount
         row = images.count % hCount == 0 ? row : row + 1
         if imageCollectionViewHeightConstraint == nil {
-            imageCollectionViewHeightConstraint = NSLayoutConstraint(item: imageCollectionView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 100))
+            imageCollectionViewHeightConstraint = NSLayoutConstraint(item: imageCollectionView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 70))
             
             imageCollectionView.addConstraint(imageCollectionViewHeightConstraint!)
         } else {
-            imageCollectionViewHeightConstraint?.constant = CGFloat(row * 100)
+            imageCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 100)
+        let height = 43.5 + Double(row * 70)
         
         imageTableCell.frame = CGRect(x: imageTableCell.frame.origin.x, y: imageTableCell.frame.origin.y, width: imageTableCell.frame.width, height: CGFloat(height))
         

@@ -13,6 +13,8 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var emptyDataView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    let mediaCellSize = 70
+    
     var reminds = [Remind]()
 
     override func viewDidLoad() {
@@ -149,7 +151,7 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRowAt: \(indexPath.row)")
     }
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
