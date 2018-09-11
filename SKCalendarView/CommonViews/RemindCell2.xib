@@ -24,7 +24,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="M3T-2W-lj7">
                                 <rect key="frame" x="52" y="0.0" width="1" height="28"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.86182055710000005" green="0.86182055710000005" blue="0.86182055710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1" id="TT0-qx-mEK"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" red="0.86182055710000005" green="0.86182055710000005" blue="0.86182055710000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="2sr-Zs-oQ8" secondAttribute="trailing" constant="8" id="7ec-RG-dJE"/>
                     <constraint firstAttribute="bottom" secondItem="2sr-Zs-oQ8" secondAttribute="bottom" constant="8" id="NYr-C9-BKW"/>

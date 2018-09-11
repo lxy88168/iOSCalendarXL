@@ -55,18 +55,18 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
         collectionViewImages.register(cellNib, forCellWithReuseIdentifier: "imageCell")
         
         var layout =  collectionViewAudios.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 70, height: 70)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
         layout =  collectionViewImages.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 70, height: 70)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
         updateView()
     }
@@ -189,17 +189,17 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
     }
 
     func updateAudioCollectionViewHeight() {
-        let hCount = Int(collectionViewAudios.frame.width) / 100
+        let hCount = Int(collectionViewAudios.frame.width) / 70
         var row = audioClips.count / hCount
         row = audioClips.count % hCount == 0 ? row : row + 1
         if audioCollectionViewHeightConstraint == nil {
-            audioCollectionViewHeightConstraint = NSLayoutConstraint(item: collectionViewAudios, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 100))
+            audioCollectionViewHeightConstraint = NSLayoutConstraint(item: collectionViewAudios, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 70))
             
             collectionViewAudios.addConstraint(audioCollectionViewHeightConstraint!)
         } else {
-            audioCollectionViewHeightConstraint?.constant = CGFloat(row * 100)
+            audioCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 100)
+        let height = 43.5 + Double(row * 70)
         
 //        audioTableCell.frame = CGRect(x: audioTableCell.frame.origin.x, y: audioTableCell.frame.origin.y, width: audioTableCell.frame.width, height: CGFloat(height))
         
@@ -207,17 +207,17 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
     }
     
     func updateImageCollectionViewHeight() {
-        let hCount = Int(collectionViewImages.frame.width) / 100
+        let hCount = Int(collectionViewImages.frame.width) / 70
         var row = images.count / hCount
         row = images.count % hCount == 0 ? row : row + 1
         if imageCollectionViewHeightConstraint == nil {
-            imageCollectionViewHeightConstraint = NSLayoutConstraint(item: collectionViewImages, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 100))
+            imageCollectionViewHeightConstraint = NSLayoutConstraint(item: collectionViewImages, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 70))
             
             collectionViewImages.addConstraint(imageCollectionViewHeightConstraint!)
         } else {
-            imageCollectionViewHeightConstraint?.constant = CGFloat(row * 100)
+            imageCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 100)
+        let height = 43.5 + Double(row * 70)
         
 //        imageTableCell.frame = CGRect(x: imageTableCell.frame.origin.x, y: imageTableCell.frame.origin.y, width: imageTableCell.frame.width, height: CGFloat(height))
         

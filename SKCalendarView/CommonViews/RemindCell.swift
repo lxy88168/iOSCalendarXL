@@ -13,27 +13,47 @@ class RemindCell: UITableViewCell, UICollectionViewDataSource {
     
     var medias: [Media] = []{
         didSet {
-            updateCollectionViewHeight()
-            collectionViewMedia.reloadData()
+            audios.removeAll()
+            images.removeAll()
+            medias.forEach({(media) in
+                if (media.type == .Audio) {
+                    audios.append(media)
+                } else if (media.type == .Image) {
+                    images.append(media)
+                }
+            })
+            updateAudioCollectionViewHeight()
+            updateImageCollectionViewHeight()
+            collectionViewImage.reloadData()
+            collectionViewAudio.reloadData()
         }
     }
     
+    private var audios: [Media] = []
+    
+    private var images: [Media] = []
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return medias.count
+        if collectionView == collectionViewAudio {
+            return audios.count
+        } else {
+            return images.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let media = medias[indexPath.row]
-        let cell: MediaCollectionViewCell?
         
-        if media.type == Media.MediaType.Audio {
-            let audioCell = collectionViewMedia.dequeueReusableCell(withReuseIdentifier: "audioClipCell", for: indexPath) as! AudioClipCell
-            audioCell.media = media
-            cell = audioCell
+        if (collectionView == collectionViewAudio) {
+            let audio = audios[indexPath.row]
+            let audioCell = collectionViewAudio.dequeueReusableCell(withReuseIdentifier: "audioClipCell", for: indexPath) as! AudioClipCell
+            audioCell.media = audio
+            audioCell.setCanDelete(canDelete: false)
+            return audioCell
         } else {
-            let imageCell = collectionViewMedia.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
+            let image = images[indexPath.row]
+            let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
             imageCell.setCanDelete(canDelete: false)
-            let url = NSURL(string: media.filePath)!
+            let url = NSURL(string: image.filePath)!
             let assetLibrary = ALAssetsLibrary()
             assetLibrary.asset(for: url as URL!, resultBlock: { (asset:ALAsset?) -> Void in
                 if let imageRef = asset?.defaultRepresentation().fullScreenImage() {
@@ -42,26 +62,37 @@ class RemindCell: UITableViewCell, UICollectionViewDataSource {
             }, failureBlock: {(error) in
                 print("get file path error: \(error)")
             })
-            
-            cell = imageCell
+            return imageCell
         }
-        cell!.setCanDelete(canDelete: false)
-        return cell!
     }
     
-    var heightConstraint: NSLayoutConstraint?
+    func updateAudioCollectionViewHeight() {
+        let hCount = Int(collectionViewAudio.frame.width) / 70
+        var row = audios.count / hCount
+        row = audios.count % hCount == 0 ? row : row + 1
+        collectionViewAudio.constraints.forEach({constraint in
+            if constraint.firstAttribute == .height {
+                constraint.constant = CGFloat(row * 70)
+            }
+        })
+//        if heightConstraint == nil {
+//            heightConstraint = NSLayoutConstraint(item: collectionViewAudio, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 70))
+//
+//            collectionViewAudio.addConstraint(heightConstraint!)
+//        } else {
+//            heightConstraint?.constant = CGFloat(row * 70)
+//        }
+    }
     
-    func updateCollectionViewHeight() {
-        let hCount = Int(collectionViewMedia.frame.width) / 100
-        var row = medias.count / hCount
-        row = medias.count % hCount == 0 ? row : row + 1
-        if heightConstraint == nil {
-            heightConstraint = NSLayoutConstraint(item: collectionViewMedia, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: CGFloat(row * 100))
-            
-            collectionViewMedia.addConstraint(heightConstraint!)
-        } else {
-            heightConstraint?.constant = CGFloat(row * 100)
-        }
+    func updateImageCollectionViewHeight() {
+        let hCount = Int(collectionViewAudio.frame.width) / 70
+        var row = images.count / hCount
+        row = images.count % hCount == 0 ? row : row + 1
+        collectionViewImage.constraints.forEach({constraint in
+            if constraint.firstAttribute == .height {
+                constraint.constant = CGFloat(row * 70)
+            }
+        })
     }
     
     @IBOutlet weak var labelRemindContent: UILabel!
@@ -70,25 +101,35 @@ class RemindCell: UITableViewCell, UICollectionViewDataSource {
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var viewBackground: UIView!
-    @IBOutlet weak var collectionViewMedia: UICollectionView!
+    @IBOutlet weak var collectionViewAudio: UICollectionView!
+    @IBOutlet weak var collectionViewImage: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         viewBackground.layer.cornerRadius = 8
         var cellNib = UINib(nibName: "AudioClipCell", bundle: nil)
-        collectionViewMedia.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")
+        collectionViewAudio.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")
         cellNib = UINib(nibName: "ImageCell", bundle: nil)
-        collectionViewMedia.register(cellNib, forCellWithReuseIdentifier: "imageCell")
+        collectionViewImage.register(cellNib, forCellWithReuseIdentifier: "imageCell")
         
-        let layout =  collectionViewMedia.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        var layout = collectionViewAudio.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
+        layout.itemSize = CGSize(width: 70, height: 70)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        layout.estimatedItemSize = CGSize(width: 100, height: 100)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
-        updateCollectionViewHeight()
+        updateAudioCollectionViewHeight()
+        
+        layout = collectionViewImage.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
+        layout.itemSize = CGSize(width: 70, height: 70)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        layout.estimatedItemSize = CGSize(width: 70, height: 70)
+        
+        updateImageCollectionViewHeight()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
