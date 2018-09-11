@@ -1840,6 +1840,7 @@
                     <connections>
                         <outlet property="HeLabel" destination="Xpk-d8-de5" id="FzZ-6f-Nb5"/>
                         <outlet property="JianGeLabel" destination="3mg-xX-eKb" id="j1K-OD-l8e"/>
+                        <outlet property="JianGeSearchBtn" destination="99w-oH-oyc" id="5wp-zT-c0W"/>
                         <outlet property="JianGeTextField" destination="Sdp-1F-1N3" id="Kkf-Yi-tey"/>
                         <outlet property="TSJianGeLabel" destination="5Nw-Pj-cxo" id="6Lk-4P-I1K"/>
                         <outlet property="TSYangLi" destination="Vdj-oI-F2I" id="jL8-8c-Mvl"/>
@@ -1852,6 +1853,7 @@
                         <outlet property="YingLiView" destination="Ma8-Xx-FFd" id="kCt-yS-r2a"/>
                         <outlet property="firstDateBtn" destination="JKp-M9-Iu0" id="9Da-yg-Bge"/>
                         <outlet property="firstDateView" destination="1Ng-Pv-E16" id="R0J-L4-Kcj"/>
+                        <outlet property="firstSecondBtn" destination="sFi-ZM-Drq" id="7M6-EV-fsd"/>
                         <outlet property="houBtn" destination="7bq-HP-Akt" id="fmo-8U-hYx"/>
                         <outlet property="jiangetianshuView" destination="9en-nK-ybU" id="FTx-an-Ovd"/>
                         <outlet property="lunarResultBtn" destination="FTX-kJ-TLV" id="fSp-3B-q2v"/>

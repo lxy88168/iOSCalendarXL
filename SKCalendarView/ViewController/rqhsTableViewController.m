@@ -44,6 +44,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *TSYangLi;
 @property (weak, nonatomic) IBOutlet UILabel *TSYingLi;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *firstSecondBtn;
+@property (weak, nonatomic) IBOutlet UIButton *JianGeSearchBtn;
 
 @end
 
@@ -76,6 +78,12 @@ static int houBtnSelected = 0;
     self.jiangetianshuView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.jiangetianshuView.layer.borderWidth =0.3;
     self.jiangetianshuView.layer.cornerRadius=5.0;
+    
+    
+    [self.firstSecondBtn.layer setMasksToBounds:YES];
+    [self.firstSecondBtn.layer setCornerRadius:5.0];//设置矩形四个圆角半径
+    [self.JianGeSearchBtn.layer setMasksToBounds:YES];
+    [self.JianGeSearchBtn.layer setCornerRadius:5.0];//设置矩形四个圆角半径
     
     [self SwitchViews:NULL];
     
