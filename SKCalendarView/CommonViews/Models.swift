@@ -10,6 +10,8 @@ import Foundation
 
 protocol MediaCellDelegate {
     func onDelete(sender: MediaCollectionViewCell)
+    
+    func onAdd(sender: MediaCollectionViewCell)
 }
 
 class Media : NSObject, NSCoding {
@@ -47,12 +49,25 @@ enum RemindRepeatType : Int {
     case RepeatPerDay
 }
 
+enum RemindDelayType : Int {
+    case NoRepeat
+    case OnTime
+    case Before5M
+    case Before15M
+    case Before30M
+    case Before1H
+    case Before1D
+    case Before3D
+    case Before1W
+}
+
 class Remind: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(filePath, forKey: "filePath")
         aCoder.encode(content, forKey: "content")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(repeatType.rawValue, forKey: "repeatType")
+        aCoder.encode(delayType.rawValue, forKey: "delayType")
         aCoder.encode(location, forKey: "location")
         aCoder.encode(remarks, forKey: "remarks")
         aCoder.encode(medias, forKey: "medias")
@@ -67,6 +82,7 @@ class Remind: NSObject, NSCoding {
         content = aDecoder.decodeObject(forKey: "content") as! String
         date = aDecoder.decodeObject(of: Date.ReferenceType.self, forKey: "date")! as Date
         repeatType = RemindRepeatType(rawValue: aDecoder.decodeInteger(forKey: "repeatType"))!
+        delayType = RemindDelayType(rawValue: aDecoder.decodeInteger(forKey: "delayType"))!
         location = aDecoder.decodeObject(forKey: "location") as? String
         remarks = aDecoder.decodeObject(forKey: "remarks") as? String
         medias = aDecoder.decodeObject(forKey: "medias") as! [Media]
@@ -76,7 +92,18 @@ class Remind: NSObject, NSCoding {
     var content = ""
     var date = Date()
     var repeatType: RemindRepeatType = .Norepeat
+    var delayType: RemindDelayType = .OnTime
     var location: String?
     var remarks: String?
     var medias: [Media] = []
+}
+
+class ThemeObject: NSObject {
+    var name: String?
+    var color: UIColor?
+    
+    init(name: String, color: UIColor) {
+        self.name = name
+        self.color = color
+    }
 }

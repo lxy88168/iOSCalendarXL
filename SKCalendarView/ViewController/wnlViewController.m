@@ -40,6 +40,7 @@
 @property (weak, nonatomic) IBOutlet SKCalendarView *calendarView;
 @property (weak, nonatomic) IBOutlet UITableViewCell *contentCell;
 @property (nonatomic, assign) NSUInteger contentCellHeight;
+@property (weak, nonatomic) IBOutlet UILabel *labelSolarTerms;
 
 @end
 

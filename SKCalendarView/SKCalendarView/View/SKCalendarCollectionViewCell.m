@@ -27,7 +27,7 @@
     if ([super initWithFrame:frame]) {
         if (self) {
             [self customView];
-            self.enableLine = NO;
+            self.enableLine = YES;
             self.enableDateRoundCorner = YES;
         }
     }

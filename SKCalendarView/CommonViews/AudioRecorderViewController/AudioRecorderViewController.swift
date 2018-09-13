@@ -39,7 +39,7 @@ class AudioRecorderViewController: UINavigationController {
         
         navigationBar.barTintColor = UIColor.black
         navigationBar.tintColor = UIColor.white
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 
@@ -117,12 +117,12 @@ class AudioRecorderViewController: UINavigationController {
             NotificationCenter.default.removeObserver(self)
         }
         
-        func dismiss(sender: AnyObject) {
+        @objc func dismiss(sender: AnyObject) {
             cleanup()
             audioRecorderDelegate?.audioRecorderViewControllerDismissed(withFileURL: nil)
         }
         
-        func saveAudio(sender: AnyObject) {
+        @objc func saveAudio(sender: AnyObject) {
             cleanup()
             audioRecorderDelegate?.audioRecorderViewControllerDismissed(withFileURL: outputURL)
         }
@@ -165,7 +165,7 @@ class AudioRecorderViewController: UINavigationController {
         
         @objc func stopRecording(_ sender: AnyObject) {
             if recorder.isRecording {
-                toggleRecord(sender: sender)
+                toggleRecord(sender)
             }
         }
         

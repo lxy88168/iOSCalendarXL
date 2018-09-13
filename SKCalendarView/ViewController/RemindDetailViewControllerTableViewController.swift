@@ -14,10 +14,12 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
     @IBOutlet weak var labelRemindContent: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelRepeatAction: UILabel!
+    @IBOutlet weak var labelDelayAction: UILabel!
     @IBOutlet weak var labelLocation: UILabel!
     @IBOutlet weak var labelRemarks: UILabel!
     @IBOutlet weak var collectionViewAudios: UICollectionView!
     @IBOutlet weak var collectionViewImages: UICollectionView!
+    @IBOutlet weak var labelCalendar: UILabel!
     
     var audioCollectionViewHeightConstraint: NSLayoutConstraint?
     var imageCollectionViewHeightConstraint: NSLayoutConstraint?
@@ -48,6 +50,10 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+        labelCalendar.layer.borderWidth = 1
+        labelCalendar.layer.cornerRadius = 3
         
         var cellNib = UINib(nibName: "AudioClipCell", bundle: nil)
         collectionViewAudios.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")
@@ -119,6 +125,7 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
         } else if remind?.repeatType == RemindRepeatType.RepeatPerYear {
             labelRepeatAction.text = "每年"
         }
+        labelDelayAction.text = CreateRemindViewController.delayActions[(remind?.delayType.rawValue)!]
         if audioClips.count > 0 {
             updateAudioCollectionViewHeight()
             collectionViewAudios.reloadData()
@@ -199,7 +206,7 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
         } else {
             audioCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 70)
+        let height = 12 + Double(row * 70)
         
 //        audioTableCell.frame = CGRect(x: audioTableCell.frame.origin.x, y: audioTableCell.frame.origin.y, width: audioTableCell.frame.width, height: CGFloat(height))
         
@@ -217,7 +224,7 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
         } else {
             imageCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 70)
+        let height = 12 + Double(row * 70)
         
 //        imageTableCell.frame = CGRect(x: imageTableCell.frame.origin.x, y: imageTableCell.frame.origin.y, width: imageTableCell.frame.width, height: CGFloat(height))
         

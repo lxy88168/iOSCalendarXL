@@ -74,7 +74,7 @@ class AudioClipCell: MediaCollectionViewCell, AVAudioPlayerDelegate {
         }
     }
     
-    func updateTimeLabel(_ timer: Timer) {
+    @objc func updateTimeLabel(_ timer: Timer) {
         timeElapsedInSecond += 1
         let remainnTime = totalTimeInSecond - timeElapsedInSecond
         let sec = remainnTime % 60

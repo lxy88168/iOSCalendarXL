@@ -3,4 +3,5 @@ target ’SKCalendarView’ do
 pod 'Masonry'
 pod 'ActionSheetPicker-3.0'
 pod 'MBProgressHUD'
+pod 'SSZipArchive'
 end

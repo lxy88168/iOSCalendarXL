@@ -17,16 +17,20 @@ protocol CreateRemindDelegate {
 }
 
 @IBDesignable
-class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate, SelectLocationDelegate, UITextFieldDelegate {
+class CreateRemindViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, MediaCellDelegate, UIDocumentPickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, AudioRecorderViewControllerDelegate, SelectLocationDelegate, UITextFieldDelegate, UITextViewDelegate {
     
-    @IBOutlet weak var fieldRemindText: UITextField!
+    @IBOutlet weak var fieldRemindText: UITextView!
     @IBOutlet weak var labelRepeat: UILabel!
+    @IBOutlet weak var labelDelay: UILabel!
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var fieldComment: UITextField!
     @IBOutlet weak var btnLocation: UIButton!
+    @IBOutlet weak var labelCalendar: UILabel!
     
     static let repeatActions = ["不重复", "每年", "每月", "每周", "每日"]
+    static let delayActions = ["不提醒", "正点提醒", "提前5分", "提前15分", "提前30分", "提前1小时", "提前1天", "提前3天", "提前一周"]
     var currentRepeatActionIndex = 0
+    var currentDelayActionIndex = 1
     var currentDate = Date()
     
     var audioRecordController: AudioRecorderViewController?
@@ -35,9 +39,9 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
             if let tempRemind = remind {
                 tempRemind.medias.forEach({(media) in
                     if media.type == Media.MediaType.Audio {
-                        audioClips.append(media)
+                        audioClips.insert(media, at: 0)
                     } else if media.type == Media.MediaType.Image {
-                        images.append(media)
+                        images.insert(media, at: 0)
                     }
                 })
             }
@@ -106,14 +110,19 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         default:
             break
         }
+        tempRemind!.delayType = RemindDelayType(rawValue: self.currentDelayActionIndex)!
         tempRemind!.location = btnLocation.currentTitle
         tempRemind!.remarks = fieldComment.text
         tempRemind!.medias = []
         audioClips.forEach({(media) in
-            tempRemind!.medias.append(media)
+            if media.type != .None {
+                tempRemind!.medias.append(media)
+            }
         })
         images.forEach({(media) in
-            tempRemind!.medias.append(media)
+            if media.type != .None {
+                tempRemind!.medias.append(media)
+            }
         })
         
         let data = NSMutableData()
@@ -127,32 +136,66 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         //数据写入
         data.write(toFile: tempRemind!.filePath!, atomically: false)
         
-        let notification = UILocalNotification()
-        notification.alertBody = tempRemind!.content
-        notification.fireDate = tempRemind!.date
-        notification.alertAction = tempRemind!.content
-        notification.userInfo = ["remindFilePath": tempRemind?.filePath as Any]
-        notification.soundName = UILocalNotificationDefaultSoundName
-        switch tempRemind!.repeatType {
-        case .RepeatPerDay:
-            notification.repeatInterval = .day
+        var fireDate = tempRemind!.date
+        switch tempRemind!.delayType {
+        case .NoRepeat:
             break
-        case .RepeatPerWeek:
-            notification.repeatInterval = .weekOfMonth
+        case .OnTime:
+            fireDate = tempRemind!.date
             break
-        case .RepeatPerYear:
-            notification.repeatInterval = .year
+        case .Before5M:
+            fireDate = fireDate.addingTimeInterval(-5 * 60)
             break
-        case .RepeatPerMonth:
-            notification.repeatInterval = .month
+        case .Before15M:
+            fireDate = fireDate.addingTimeInterval(-15 * 60)
             break
-        default:
+        case .Before30M:
+            fireDate = fireDate.addingTimeInterval(-30 * 60)
+            break
+        case .Before1H:
+            fireDate = fireDate.addingTimeInterval(-60 * 60)
+            break
+        case .Before1D:
+            fireDate = fireDate.addingTimeInterval(-24 * 60 * 60)
+            break
+        case .Before3D:
+            fireDate = fireDate.addingTimeInterval(-3 * 24 * 60 * 60)
+            break
+        case .Before1W:
+            fireDate = fireDate.addingTimeInterval(-7 * 24 * 60 * 60)
             break;
+        default:
+            break
         }
         
-        let settings = UIUserNotificationSettings(types: .sound, categories: nil)
-        UIApplication.shared.registerUserNotificationSettings(settings)
-        UIApplication.shared.scheduleLocalNotification(notification)
+        if tempRemind!.delayType != .NoRepeat {
+            let notification = UILocalNotification()
+            notification.alertBody = tempRemind!.content
+            notification.fireDate = fireDate
+            notification.alertAction = tempRemind!.content
+            notification.userInfo = ["remindFilePath": tempRemind?.filePath as Any]
+            notification.soundName = UILocalNotificationDefaultSoundName
+            switch tempRemind!.repeatType {
+            case .RepeatPerDay:
+                notification.repeatInterval = .day
+                break
+            case .RepeatPerWeek:
+                notification.repeatInterval = .weekOfMonth
+                break
+            case .RepeatPerYear:
+                notification.repeatInterval = .year
+                break
+            case .RepeatPerMonth:
+                notification.repeatInterval = .month
+                break
+            default:
+                break;
+            }
+            
+            let settings = UIUserNotificationSettings(types: .sound, categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+            UIApplication.shared.scheduleLocalNotification(notification)
+        }
         
         delegate?.onRemindSaved(newRemind: tempRemind!)
         
@@ -189,8 +232,8 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         self.present(alertController, animated: true, completion: nil)
     }
     
-    var audioClips: [Media] = []
-    var images: [Media] = []
+    var audioClips: [Media] = [Media(mediaType: .None, filePath: "")]
+    var images: [Media] = [Media(mediaType: .None, filePath: "")]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == audioCollectionView {
@@ -203,6 +246,12 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == audioCollectionView {
             let media = audioClips[indexPath.row]
+            if media.type == Media.MediaType.None {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addButtonCell", for: indexPath) as! AddButtonCell
+                cell.mediaType = .Audio
+                cell.delegate = self
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "audioClipCell", for: indexPath) as! AudioClipCell
             cell.row = indexPath.row
             cell.delegate = self
@@ -211,6 +260,12 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
             return cell
         } else {
             let media = images[indexPath.row]
+            if media.type == Media.MediaType.None {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "addButtonCell", for: indexPath) as! AddButtonCell
+                cell.mediaType = .Image
+                cell.delegate = self
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCell
             cell.row = indexPath.row
             cell.delegate = self
@@ -231,8 +286,67 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         }
     }
     
+    func onAdd(sender: MediaCollectionViewCell) {
+        if let cell = sender as? AddButtonCell {
+            if cell.mediaType == .Audio {
+                fieldComment.resignFirstResponder()
+                fieldRemindText.resignFirstResponder()
+                let sheet = UIAlertController(title: "选择音频", message: "", preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                let pickAction = UIAlertAction(title: "从媒体库选择", style: .default, handler: {(action) in
+                    let picker = UIDocumentPickerViewController(documentTypes: ["public.mp3 (kUTTypeMP3)", "com.microsoft.waveform-​audio", "public.audio (kUTTypeAudio)", ], in: UIDocumentPickerMode.open)
+                    picker.delegate = self
+                    if #available(iOS 11.0, *) {
+                        picker.allowsMultipleSelection = true
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                    self.present(picker, animated: true, completion: nil)
+                })
+                let recordAction = UIAlertAction(title: "录制", style: .default, handler: {(action) in
+                    self.audioRecordController = AudioRecorderViewController()
+                    self.audioRecordController?.audioRecorderDelegate = self
+                    self.present(self.audioRecordController!, animated: true, completion: nil)
+                })
+                sheet.addAction(cancelAction)
+                sheet.addAction(pickAction)
+                sheet.addAction(recordAction)
+                present(sheet, animated: true, completion: nil)
+            } else if cell.mediaType == .Image {
+                fieldComment.resignFirstResponder()
+                fieldRemindText.resignFirstResponder()
+                let sheet = UIAlertController(title: "选择图片", message: "", preferredStyle: .actionSheet)
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                let pickAction = UIAlertAction(title: "从媒体库选择", style: .default, handler: {(action) in
+                    self.imagePickerController = UIImagePickerController()
+                    self.imagePickerController!.sourceType = .photoLibrary
+                    self.imagePickerController!.delegate = self
+                    self.present(self.imagePickerController!, animated: true, completion: nil)
+                })
+                let recordAction = UIAlertAction(title: "拍照", style: .default, handler: {(action) in
+                    self.imagePickerController = UIImagePickerController()
+                    self.imagePickerController!.sourceType = .camera
+                    self.imagePickerController!.delegate = self
+                    self.present(self.imagePickerController!, animated: true, completion: nil)
+                })
+                sheet.addAction(cancelAction)
+                sheet.addAction(pickAction)
+                sheet.addAction(recordAction)
+                present(sheet, animated: true, completion: nil)
+            }
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text.elementsEqual("\n") {
+            textView.resignFirstResponder()
+            return false
+        }
         return true
     }
     
@@ -291,12 +405,14 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     func addMedia(type: Media.MediaType, filePath: String) -> Void {
         if type == .Audio {
             let audio = Media(mediaType: .Audio, filePath: filePath)
-            audioClips.append(audio)
+//            audioClips.append(audio)
+            audioClips.insert(audio, at: 0)
             audioCollectionView.reloadData()
             updateAudioCollectionViewHeight()
         } else if type == .Image {
             let audio = Media(mediaType: .Image, filePath: filePath)
-            images.append(audio)
+//            images.append(audio)
+            images.insert(audio, at: 0)
             imageCollectionView.reloadData()
             updateImageCollectionViewHeight()
         }
@@ -360,11 +476,19 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         var cellNib = UINib(nibName: "AudioClipCell", bundle: nil)
         audioCollectionView.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")
+        cellNib = UINib(nibName: "AddButtonCell", bundle: nil)
+        audioCollectionView.register(cellNib, forCellWithReuseIdentifier: "addButtonCell")
         cellNib = UINib(nibName: "ImageCell", bundle: nil)
         imageCollectionView.register(cellNib, forCellWithReuseIdentifier: "imageCell")
+        cellNib = UINib(nibName: "AddButtonCell", bundle: nil)
+        imageCollectionView.register(cellNib, forCellWithReuseIdentifier: "addButtonCell")
         
         audioCollectionView.clipsToBounds = false
         imageCollectionView.clipsToBounds = false
+        
+        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+        labelCalendar.layer.borderWidth = 1
+        labelCalendar.layer.cornerRadius = 3
         
         var layout =  audioCollectionView.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
         layout.itemSize = CGSize(width: 70, height: 70)
@@ -381,8 +505,10 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         layout.estimatedItemSize = CGSize(width: 70, height: 70)
         
         labelRepeat.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
+        
+        labelDelay.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:))))
     
-        currentDate = Date(timeInterval: 60 * 60, since: Date())
+        currentDate = Date()
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy年MM月dd日 hh:mm"
         labelTime.text = dateFormater.string(from: currentDate)
@@ -413,6 +539,7 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
             } else if tempRemind.repeatType == RemindRepeatType.RepeatPerYear {
                 labelRepeat.text = "每年"
             }
+            labelDelay.text = CreateRemindViewController.delayActions[tempRemind.delayType.rawValue]
             currentRepeatActionIndex = CreateRemindViewController.repeatActions.index(of: labelRepeat.text!)!
             if audioClips.count > 0 {
                 updateAudioCollectionViewHeight()
@@ -424,9 +551,11 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
                 imageCollectionView.reloadData()
             }
         }
+        updateAudioCollectionViewHeight()
+        updateImageCollectionViewHeight()
     }
     
-    func tableViewTapped(_ gesture: UITapGestureRecognizer) {
+    @objc func tableViewTapped(_ gesture: UITapGestureRecognizer) {
         fieldComment.resignFirstResponder()
         fieldRemindText.resignFirstResponder()
     }
@@ -455,12 +584,19 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
 //            datePicker?.maximumDate = Date(timeInterval: secondsInWeek, since: Date())
             datePicker?.locale = Locale.current
             datePicker?.timeZone = TimeZone.current
+            datePicker?.minimumDate = Date() 
             print("time zone: \(TimeZone.current)")
             datePicker?.show()
         } else if tapGes.view == labelRepeat {
             let sheet = ActionSheetStringPicker(title: "", rows: CreateRemindViewController.repeatActions, initialSelection: currentRepeatActionIndex, doneBlock: { picker, index, value in
                 self.labelRepeat.text = value as? String
                 self.currentRepeatActionIndex = index
+            }, cancel: {ActionSheetStringCancelBlock in return}, origin: labelRepeat)
+            sheet?.show()
+        } else if tapGes.view == labelDelay {
+            let sheet = ActionSheetStringPicker(title: "", rows: CreateRemindViewController.delayActions, initialSelection: currentDelayActionIndex, doneBlock: { picker, index, value in
+                self.labelDelay.text = value as? String
+                self.currentDelayActionIndex = index
             }, cancel: {ActionSheetStringCancelBlock in return}, origin: labelRepeat)
             sheet?.show()
         }
@@ -483,7 +619,7 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         } else {
             audioCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 70)
+        let height = 12 + Double(row * 70)
         
         audioTableCell.frame = CGRect(x: audioTableCell.frame.origin.x, y: audioTableCell.frame.origin.y, width: audioTableCell.frame.width, height: CGFloat(height))
         
@@ -501,7 +637,7 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         } else {
             imageCollectionViewHeightConstraint?.constant = CGFloat(row * 70)
         }
-        let height = 43.5 + Double(row * 70)
+        let height = 12 + Double(row * 70)
         
         imageTableCell.frame = CGRect(x: imageTableCell.frame.origin.x, y: imageTableCell.frame.origin.y, width: imageTableCell.frame.width, height: CGFloat(height))
         

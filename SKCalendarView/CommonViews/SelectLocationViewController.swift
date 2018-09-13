@@ -57,7 +57,7 @@ class SelectLocationViewController: UIViewController, UITableViewDataSource, CLL
         btnConfirm.isEnabled = true
     }
     
-    func pan(_ gesture: UIPanGestureRecognizer) {
+    @objc func pan(_ gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .ended:
             needUpdateUserLocation = false

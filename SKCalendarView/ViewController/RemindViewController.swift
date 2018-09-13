@@ -20,6 +20,8 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = false
+        
 //        tableView.register(RemindCell.classForCoder(), forCellReuseIdentifier: "remindCell")
         
         let cellNib = UINib(nibName: "RemindCell", bundle: nil)

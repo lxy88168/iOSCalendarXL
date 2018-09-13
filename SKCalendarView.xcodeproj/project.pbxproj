@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		023408ABC262CFE67303AEC5 /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F274A7927909A0CFC5AD2B /* libPods-SKCalendarView.a */; };
 		8723BA0C21356FE300AF7172 /* rqhsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8723BA0B21356FE200AF7172 /* rqhsTableViewController.m */; };
 		872C0A31211F304A00D813AD /* wnlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A30211F304A00D813AD /* wnlViewController.m */; };
 		872C0A42211F33EE00D813AD /* Solar.m in Sources */ = {isa = PBXBuildFile; fileRef = 872C0A37211F33EE00D813AD /* Solar.m */; };
@@ -32,7 +33,6 @@
 		A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62922E4212FD47F0032E1E9 /* RemindCell.xib */; };
 		A63E6B8B21390BEB006FF099 /* RemindCell2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B8921390BEB006FF099 /* RemindCell2TableViewCell.swift */; };
 		A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6B8A21390BEB006FF099 /* RemindCell2TableViewCell.xib */; };
-		A63E6B8D2139787D006FF099 /* libPods-SKCalendarView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */; };
 		A63E6B8F2139788E006FF099 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63E6B8E2139788E006FF099 /* MapKit.framework */; };
 		A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9021397B96006FF099 /* SelectLocationViewController.swift */; };
 		A63E6B94213ADD8A006FF099 /* LocationNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B92213ADD8A006FF099 /* LocationNameCell.swift */; };
@@ -40,11 +40,37 @@
 		A63E6B9B2140F97D006FF099 /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6B9A2140F97D006FF099 /* TestView.m */; };
 		A63E6BA321413025006FF099 /* RemindCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BA121413025006FF099 /* RemindCell2.m */; };
 		A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BA221413025006FF099 /* RemindCell2.xib */; };
-		A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BAA2142D0E9006FF099 /* ThemeCell.m */; };
-		A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */; };
+		A63E6BB02147A345006FF099 /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BAE2147A344006FF099 /* ThemeCollectionViewCell.swift */; };
+		A63E6BB12147A345006FF099 /* ThemeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A63E6BAF2147A344006FF099 /* ThemeCollectionViewCell.xib */; };
+		A63E6BB32147A5B4006FF099 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BB22147A5B4006FF099 /* ThemeViewController.swift */; };
+		A63E6BE92148D69B006FF099 /* TXSakuraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BBE2148D69A006FF099 /* TXSakuraButton.m */; };
+		A63E6BEA2148D69B006FF099 /* TXSakuraBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BBF2148D69A006FF099 /* TXSakuraBar.m */; };
+		A63E6BEB2148D69B006FF099 /* TXSakuraLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BC12148D69A006FF099 /* TXSakuraLabel.m */; };
+		A63E6BEC2148D69B006FF099 /* TXSakuraShapeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BC22148D69A006FF099 /* TXSakuraShapeLayer.m */; };
+		A63E6BED2148D69B006FF099 /* TXSakuraSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BC42148D69A006FF099 /* TXSakuraSlider.m */; };
+		A63E6BEE2148D69B006FF099 /* TXSakuraTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BC62148D69A006FF099 /* TXSakuraTableView.m */; };
+		A63E6BEF2148D69B006FF099 /* TXSakuraImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BC92148D69A006FF099 /* TXSakuraImageView.m */; };
+		A63E6BF02148D69B006FF099 /* TXSakuraController.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BCA2148D69A006FF099 /* TXSakuraController.m */; };
+		A63E6BF12148D69B006FF099 /* TXSakuraTrash.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BCB2148D69A006FF099 /* TXSakuraTrash.m */; };
+		A63E6BF22148D69B006FF099 /* TXSakuraNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BCC2148D69A006FF099 /* TXSakuraNavigationBar.m */; };
+		A63E6BF32148D69B006FF099 /* TXSakuraLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BCD2148D69A006FF099 /* TXSakuraLayer.m */; };
+		A63E6BF42148D69B006FF099 /* TXSakuraSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BCF2148D69A006FF099 /* TXSakuraSwitch.m */; };
+		A63E6BF52148D69B006FF099 /* TXSakuraProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BD12148D69A006FF099 /* TXSakuraProgress.m */; };
+		A63E6BF62148D69B006FF099 /* TXSakuraView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BD42148D69A006FF099 /* TXSakuraView.m */; };
+		A63E6BF72148D69B006FF099 /* TXSakuraIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BD72148D69A006FF099 /* TXSakuraIndicatorView.m */; };
+		A63E6BF82148D69B006FF099 /* TXSakuraPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BDA2148D69A006FF099 /* TXSakuraPageControl.m */; };
+		A63E6BF92148D69B006FF099 /* TXSakuraApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BDB2148D69A006FF099 /* TXSakuraApplication.m */; };
+		A63E6BFA2148D69B006FF099 /* TXSakuraTextComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BDD2148D69A006FF099 /* TXSakuraTextComponent.m */; };
+		A63E6BFB2148D69B006FF099 /* TXSakuraBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BDF2148D69A006FF099 /* TXSakuraBarItem.m */; };
+		A63E6BFC2148D69B006FF099 /* TXSakura.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BE52148D69A006FF099 /* TXSakura.m */; };
+		A63E6BFD2148D69B006FF099 /* TXSakuraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A63E6BE72148D69B006FF099 /* TXSakuraManager.m */; };
 		A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */; };
 		A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */; };
 		A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */; };
+		A6653F702149250800687B51 /* SelectRingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6653F6F2149250800687B51 /* SelectRingViewController.swift */; };
+		A6653F7321493D3100687B51 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6653F7121493D3100687B51 /* AddButtonCell.swift */; };
+		A6653F7421493D3100687B51 /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7221493D3100687B51 /* AddButtonCell.xib */; };
+		A6653F772149869F00687B51 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F762149869F00687B51 /* default.json */; };
 		E46BB91A1E8B678400A1E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB9191E8B678400A1E1C7 /* main.m */; };
 		E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */; };
 		E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9211E8B678400A1E1C7 /* Main.storyboard */; };
@@ -105,14 +131,60 @@
 		A63E6BA021413025006FF099 /* RemindCell2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemindCell2.h; sourceTree = "<group>"; };
 		A63E6BA121413025006FF099 /* RemindCell2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindCell2.m; sourceTree = "<group>"; };
 		A63E6BA221413025006FF099 /* RemindCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemindCell2.xib; sourceTree = "<group>"; };
-		A63E6BA92142D0E9006FF099 /* ThemeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeCell.h; sourceTree = "<group>"; };
-		A63E6BAA2142D0E9006FF099 /* ThemeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeCell.m; sourceTree = "<group>"; };
-		A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCell.xib; sourceTree = "<group>"; };
+		A63E6BAE2147A344006FF099 /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		A63E6BAF2147A344006FF099 /* ThemeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThemeCollectionViewCell.xib; sourceTree = "<group>"; };
+		A63E6BB22147A5B4006FF099 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		A63E6BBC2148D69A006FF099 /* TXSakuraKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraKit.h; sourceTree = "<group>"; };
+		A63E6BBE2148D69A006FF099 /* TXSakuraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraButton.m; sourceTree = "<group>"; };
+		A63E6BBF2148D69A006FF099 /* TXSakuraBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraBar.m; sourceTree = "<group>"; };
+		A63E6BC02148D69A006FF099 /* TXSakuraProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraProgress.h; sourceTree = "<group>"; };
+		A63E6BC12148D69A006FF099 /* TXSakuraLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraLabel.m; sourceTree = "<group>"; };
+		A63E6BC22148D69A006FF099 /* TXSakuraShapeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraShapeLayer.m; sourceTree = "<group>"; };
+		A63E6BC32148D69A006FF099 /* TXSakuraIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraIndicatorView.h; sourceTree = "<group>"; };
+		A63E6BC42148D69A006FF099 /* TXSakuraSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraSlider.m; sourceTree = "<group>"; };
+		A63E6BC52148D69A006FF099 /* TXSakuraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraView.h; sourceTree = "<group>"; };
+		A63E6BC62148D69A006FF099 /* TXSakuraTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraTableView.m; sourceTree = "<group>"; };
+		A63E6BC72148D69A006FF099 /* TXSakuraApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraApplication.h; sourceTree = "<group>"; };
+		A63E6BC82148D69A006FF099 /* TXSakuraPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraPageControl.h; sourceTree = "<group>"; };
+		A63E6BC92148D69A006FF099 /* TXSakuraImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraImageView.m; sourceTree = "<group>"; };
+		A63E6BCA2148D69A006FF099 /* TXSakuraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraController.m; sourceTree = "<group>"; };
+		A63E6BCB2148D69A006FF099 /* TXSakuraTrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraTrash.m; sourceTree = "<group>"; };
+		A63E6BCC2148D69A006FF099 /* TXSakuraNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraNavigationBar.m; sourceTree = "<group>"; };
+		A63E6BCD2148D69A006FF099 /* TXSakuraLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraLayer.m; sourceTree = "<group>"; };
+		A63E6BCE2148D69A006FF099 /* TXSakuraBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraBarItem.h; sourceTree = "<group>"; };
+		A63E6BCF2148D69A006FF099 /* TXSakuraSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraSwitch.m; sourceTree = "<group>"; };
+		A63E6BD02148D69A006FF099 /* TXSakuraTextComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraTextComponent.h; sourceTree = "<group>"; };
+		A63E6BD12148D69A006FF099 /* TXSakuraProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraProgress.m; sourceTree = "<group>"; };
+		A63E6BD22148D69A006FF099 /* TXSakuraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraButton.h; sourceTree = "<group>"; };
+		A63E6BD32148D69A006FF099 /* TXSakuraBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraBar.h; sourceTree = "<group>"; };
+		A63E6BD42148D69A006FF099 /* TXSakuraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraView.m; sourceTree = "<group>"; };
+		A63E6BD52148D69A006FF099 /* TXSakuraSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraSlider.h; sourceTree = "<group>"; };
+		A63E6BD62148D69A006FF099 /* TXSakuraShapeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraShapeLayer.h; sourceTree = "<group>"; };
+		A63E6BD72148D69A006FF099 /* TXSakuraIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraIndicatorView.m; sourceTree = "<group>"; };
+		A63E6BD82148D69A006FF099 /* TXSakuraLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraLabel.h; sourceTree = "<group>"; };
+		A63E6BD92148D69A006FF099 /* TXSakuraImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraImageView.h; sourceTree = "<group>"; };
+		A63E6BDA2148D69A006FF099 /* TXSakuraPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraPageControl.m; sourceTree = "<group>"; };
+		A63E6BDB2148D69A006FF099 /* TXSakuraApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraApplication.m; sourceTree = "<group>"; };
+		A63E6BDC2148D69A006FF099 /* TXSakuraTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraTableView.h; sourceTree = "<group>"; };
+		A63E6BDD2148D69A006FF099 /* TXSakuraTextComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraTextComponent.m; sourceTree = "<group>"; };
+		A63E6BDE2148D69A006FF099 /* TXSakuraSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraSwitch.h; sourceTree = "<group>"; };
+		A63E6BDF2148D69A006FF099 /* TXSakuraBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraBarItem.m; sourceTree = "<group>"; };
+		A63E6BE02148D69A006FF099 /* TXSakuraLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraLayer.h; sourceTree = "<group>"; };
+		A63E6BE12148D69A006FF099 /* TXSakuraNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraNavigationBar.h; sourceTree = "<group>"; };
+		A63E6BE22148D69A006FF099 /* TXSakuraTrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraTrash.h; sourceTree = "<group>"; };
+		A63E6BE32148D69A006FF099 /* TXSakuraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraController.h; sourceTree = "<group>"; };
+		A63E6BE52148D69A006FF099 /* TXSakura.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakura.m; sourceTree = "<group>"; };
+		A63E6BE62148D69B006FF099 /* TXSakuraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakuraManager.h; sourceTree = "<group>"; };
+		A63E6BE72148D69B006FF099 /* TXSakuraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSakuraManager.m; sourceTree = "<group>"; };
+		A63E6BE82148D69B006FF099 /* TXSakura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSakura.h; sourceTree = "<group>"; };
 		A6474130212E40C3008C8EC0 /* SKCalendarView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKCalendarView-Bridging-Header.h"; sourceTree = "<group>"; };
 		A6474133212E5F3D008C8EC0 /* AudioClipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioClipCell.swift; sourceTree = "<group>"; };
 		A6474135212E5F9C008C8EC0 /* AudioClipCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioClipCell.xib; sourceTree = "<group>"; };
 		A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRemindViewController.swift; sourceTree = "<group>"; };
-		BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKCalendarView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6653F6F2149250800687B51 /* SelectRingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRingViewController.swift; sourceTree = "<group>"; };
+		A6653F7121493D3100687B51 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
+		A6653F7221493D3100687B51 /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
+		A6653F762149869F00687B51 /* default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default.json; sourceTree = "<group>"; };
 		D40120A811C0307FFDDA7152 /* Pods-SKCalendarView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKCalendarView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKCalendarView/Pods-SKCalendarView.release.xcconfig"; sourceTree = "<group>"; };
 		E46BB9151E8B678400A1E1C7 /* SKCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46BB9191E8B678400A1E1C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -135,6 +207,7 @@
 		E49B050E1E8F76A8007D230C /* SKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCalendarView.m; sourceTree = "<group>"; };
 		E49B050F1E8F76A8007D230C /* SKWeekCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKWeekCollectionViewCell.h; sourceTree = "<group>"; };
 		E49B05101E8F76A8007D230C /* SKWeekCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKWeekCollectionViewCell.m; sourceTree = "<group>"; };
+		E6F274A7927909A0CFC5AD2B /* libPods-SKCalendarView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKCalendarView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A63E6B8F2139788E006FF099 /* MapKit.framework in Frameworks */,
-				A63E6B8D2139787D006FF099 /* libPods-SKCalendarView.a in Frameworks */,
+				023408ABC262CFE67303AEC5 /* libPods-SKCalendarView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +242,8 @@
 				A6474137212E7286008C8EC0 /* CreateRemindViewController.swift */,
 				A62922E1212FB3230032E1E9 /* RemindViewController.swift */,
 				A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */,
+				A63E6BB22147A5B4006FF099 /* ThemeViewController.swift */,
+				A6653F6F2149250800687B51 /* SelectRingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -206,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				A63E6B8E2139788E006FF099 /* MapKit.framework */,
-				BB02D2507B031F86B852D4E1 /* libPods-SKCalendarView.a */,
+				E6F274A7927909A0CFC5AD2B /* libPods-SKCalendarView.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,6 +295,72 @@
 				A626E72521330F1F008AD935 /* AudioRecorderViewController.swift */,
 			);
 			path = AudioRecorderViewController;
+			sourceTree = "<group>";
+		};
+		A63E6BBB2148D69A006FF099 /* SakuraKit */ = {
+			isa = PBXGroup;
+			children = (
+				A63E6BBC2148D69A006FF099 /* TXSakuraKit.h */,
+				A63E6BBD2148D69A006FF099 /* Components */,
+				A63E6BE42148D69A006FF099 /* Base */,
+			);
+			path = SakuraKit;
+			sourceTree = "<group>";
+		};
+		A63E6BBD2148D69A006FF099 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A63E6BBE2148D69A006FF099 /* TXSakuraButton.m */,
+				A63E6BBF2148D69A006FF099 /* TXSakuraBar.m */,
+				A63E6BC02148D69A006FF099 /* TXSakuraProgress.h */,
+				A63E6BC12148D69A006FF099 /* TXSakuraLabel.m */,
+				A63E6BC22148D69A006FF099 /* TXSakuraShapeLayer.m */,
+				A63E6BC32148D69A006FF099 /* TXSakuraIndicatorView.h */,
+				A63E6BC42148D69A006FF099 /* TXSakuraSlider.m */,
+				A63E6BC52148D69A006FF099 /* TXSakuraView.h */,
+				A63E6BC62148D69A006FF099 /* TXSakuraTableView.m */,
+				A63E6BC72148D69A006FF099 /* TXSakuraApplication.h */,
+				A63E6BC82148D69A006FF099 /* TXSakuraPageControl.h */,
+				A63E6BC92148D69A006FF099 /* TXSakuraImageView.m */,
+				A63E6BCA2148D69A006FF099 /* TXSakuraController.m */,
+				A63E6BCB2148D69A006FF099 /* TXSakuraTrash.m */,
+				A63E6BCC2148D69A006FF099 /* TXSakuraNavigationBar.m */,
+				A63E6BCD2148D69A006FF099 /* TXSakuraLayer.m */,
+				A63E6BCE2148D69A006FF099 /* TXSakuraBarItem.h */,
+				A63E6BCF2148D69A006FF099 /* TXSakuraSwitch.m */,
+				A63E6BD02148D69A006FF099 /* TXSakuraTextComponent.h */,
+				A63E6BD12148D69A006FF099 /* TXSakuraProgress.m */,
+				A63E6BD22148D69A006FF099 /* TXSakuraButton.h */,
+				A63E6BD32148D69A006FF099 /* TXSakuraBar.h */,
+				A63E6BD42148D69A006FF099 /* TXSakuraView.m */,
+				A63E6BD52148D69A006FF099 /* TXSakuraSlider.h */,
+				A63E6BD62148D69A006FF099 /* TXSakuraShapeLayer.h */,
+				A63E6BD72148D69A006FF099 /* TXSakuraIndicatorView.m */,
+				A63E6BD82148D69A006FF099 /* TXSakuraLabel.h */,
+				A63E6BD92148D69A006FF099 /* TXSakuraImageView.h */,
+				A63E6BDA2148D69A006FF099 /* TXSakuraPageControl.m */,
+				A63E6BDB2148D69A006FF099 /* TXSakuraApplication.m */,
+				A63E6BDC2148D69A006FF099 /* TXSakuraTableView.h */,
+				A63E6BDD2148D69A006FF099 /* TXSakuraTextComponent.m */,
+				A63E6BDE2148D69A006FF099 /* TXSakuraSwitch.h */,
+				A63E6BDF2148D69A006FF099 /* TXSakuraBarItem.m */,
+				A63E6BE02148D69A006FF099 /* TXSakuraLayer.h */,
+				A63E6BE12148D69A006FF099 /* TXSakuraNavigationBar.h */,
+				A63E6BE22148D69A006FF099 /* TXSakuraTrash.h */,
+				A63E6BE32148D69A006FF099 /* TXSakuraController.h */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A63E6BE42148D69A006FF099 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A63E6BE52148D69A006FF099 /* TXSakura.m */,
+				A63E6BE62148D69B006FF099 /* TXSakuraManager.h */,
+				A63E6BE72148D69B006FF099 /* TXSakuraManager.m */,
+				A63E6BE82148D69B006FF099 /* TXSakura.h */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		A647412D212E3945008C8EC0 /* CommonViews */ = {
@@ -245,11 +386,20 @@
 				A63E6BA021413025006FF099 /* RemindCell2.h */,
 				A63E6BA121413025006FF099 /* RemindCell2.m */,
 				A63E6BA221413025006FF099 /* RemindCell2.xib */,
-				A63E6BA92142D0E9006FF099 /* ThemeCell.h */,
-				A63E6BAA2142D0E9006FF099 /* ThemeCell.m */,
-				A63E6BAB2142D0E9006FF099 /* ThemeCell.xib */,
+				A63E6BAE2147A344006FF099 /* ThemeCollectionViewCell.swift */,
+				A63E6BAF2147A344006FF099 /* ThemeCollectionViewCell.xib */,
+				A6653F7121493D3100687B51 /* AddButtonCell.swift */,
+				A6653F7221493D3100687B51 /* AddButtonCell.xib */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		A6653F75214985FC00687B51 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6653F762149869F00687B51 /* default.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E46BB90C1E8B678300A1E1C7 = {
@@ -273,6 +423,8 @@
 		E46BB9171E8B678400A1E1C7 /* SKCalendarView */ = {
 			isa = PBXGroup;
 			children = (
+				A6653F75214985FC00687B51 /* Resources */,
+				A63E6BBB2148D69A006FF099 /* SakuraKit */,
 				A63E6B9C21410870006FF099 /* SKCalendarView.entitlements */,
 				A647412D212E3945008C8EC0 /* CommonViews */,
 				872C0A36211F33EE00D813AD /* RQHSHead */,
@@ -420,11 +572,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */,
+				A6653F772149869F00687B51 /* default.json in Resources */,
 				A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */,
 				E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */,
 				A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */,
 				E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */,
 				A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */,
+				A63E6BB12147A345006FF099 /* ThemeCollectionViewCell.xib in Resources */,
+				A6653F7421493D3100687B51 /* AddButtonCell.xib in Resources */,
 				A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */,
 				E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */,
 				A63E6B95213ADD8A006FF099 /* LocationNameCell.xib in Resources */,
@@ -432,7 +587,6 @@
 				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
 				A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */,
 				872C0A43211F33EE00D813AD /* left@2x.png in Resources */,
-				A63E6BAD2142D0E9006FF099 /* ThemeCell.xib in Resources */,
 				A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,37 +620,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				E49B05161E8F76A8007D230C /* SKWeekCollectionViewCell.m in Sources */,
+				A63E6BEB2148D69B006FF099 /* TXSakuraLabel.m in Sources */,
+				A63E6BEC2148D69B006FF099 /* TXSakuraShapeLayer.m in Sources */,
 				A626E70A21300C56008AD935 /* Models.swift in Sources */,
 				E49B05121E8F76A8007D230C /* SKCalendarAnimationManage.m in Sources */,
 				A626E70721300875008AD935 /* ImageCell.swift in Sources */,
 				A615954321378E160061E828 /* RemindDetailViewControllerTableViewController.swift in Sources */,
+				A63E6BEF2148D69B006FF099 /* TXSakuraImageView.m in Sources */,
 				E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */,
+				A63E6BB32147A5B4006FF099 /* ThemeViewController.swift in Sources */,
+				A63E6BF32148D69B006FF099 /* TXSakuraLayer.m in Sources */,
+				A63E6BF22148D69B006FF099 /* TXSakuraNavigationBar.m in Sources */,
 				A63E6B8B21390BEB006FF099 /* RemindCell2TableViewCell.swift in Sources */,
+				A63E6BF72148D69B006FF099 /* TXSakuraIndicatorView.m in Sources */,
 				872C0A31211F304A00D813AD /* wnlViewController.m in Sources */,
+				A63E6BF42148D69B006FF099 /* TXSakuraSwitch.m in Sources */,
+				A63E6BEE2148D69B006FF099 /* TXSakuraTableView.m in Sources */,
 				A626E70F2130DAFD008AD935 /* MediaCollectionViewCell.swift in Sources */,
 				A6474138212E7286008C8EC0 /* CreateRemindViewController.swift in Sources */,
 				A62922E5212FD47F0032E1E9 /* RemindCell.swift in Sources */,
+				A63E6BFA2148D69B006FF099 /* TXSakuraTextComponent.m in Sources */,
+				A63E6BEA2148D69B006FF099 /* TXSakuraBar.m in Sources */,
+				A63E6BF62148D69B006FF099 /* TXSakuraView.m in Sources */,
 				A626E72921330F1F008AD935 /* AudioRecorderViewController.swift in Sources */,
 				A6474134212E5F3D008C8EC0 /* AudioClipCell.swift in Sources */,
 				E49B05131E8F76A8007D230C /* SKDateSecurity.m in Sources */,
+				A63E6BF52148D69B006FF099 /* TXSakuraProgress.m in Sources */,
 				872C0A42211F33EE00D813AD /* Solar.m in Sources */,
+				A63E6BFD2148D69B006FF099 /* TXSakuraManager.m in Sources */,
+				A63E6BF12148D69B006FF099 /* TXSakuraTrash.m in Sources */,
 				E49B05141E8F76A8007D230C /* SKCalendarCollectionViewCell.m in Sources */,
+				A63E6BF92148D69B006FF099 /* TXSakuraApplication.m in Sources */,
 				878B893E2129BE3C00BB970B /* SolarDatePickerView.m in Sources */,
 				A62922E2212FB3230032E1E9 /* RemindViewController.swift in Sources */,
 				A63E6BA321413025006FF099 /* RemindCell2.m in Sources */,
+				A63E6BE92148D69B006FF099 /* TXSakuraButton.m in Sources */,
 				872C0A44211F33EE00D813AD /* CalendarDisplyManager.m in Sources */,
+				A63E6BFC2148D69B006FF099 /* TXSakura.m in Sources */,
 				8723BA0C21356FE300AF7172 /* rqhsTableViewController.m in Sources */,
 				E49B05111E8F76A8007D230C /* SKCalendarManage.m in Sources */,
 				A63E6B9121397B96006FF099 /* SelectLocationViewController.swift in Sources */,
 				A63E6B9B2140F97D006FF099 /* TestView.m in Sources */,
+				A63E6BED2148D69B006FF099 /* TXSakuraSlider.m in Sources */,
 				A626E70D21304C91008AD935 /* LXCollectionViewLeftOrRightAlignedLayout.m in Sources */,
-				A63E6BAC2142D0E9006FF099 /* ThemeCell.m in Sources */,
+				A63E6BB02147A345006FF099 /* ThemeCollectionViewCell.swift in Sources */,
 				872C0A47211F33EE00D813AD /* Lunar.m in Sources */,
 				A63E6B94213ADD8A006FF099 /* LocationNameCell.swift in Sources */,
 				E49B05151E8F76A8007D230C /* SKCalendarView.m in Sources */,
+				A63E6BF02148D69B006FF099 /* TXSakuraController.m in Sources */,
 				872C0A45211F33EE00D813AD /* LunarSolarTransform.m in Sources */,
 				878B89442129C7AC00BB970B /* LunarDatePickerView.m in Sources */,
+				A6653F7321493D3100687B51 /* AddButtonCell.swift in Sources */,
 				E46BB91A1E8B678400A1E1C7 /* main.m in Sources */,
+				A6653F702149250800687B51 /* SelectRingViewController.swift in Sources */,
+				A63E6BF82148D69B006FF099 /* TXSakuraPageControl.m in Sources */,
+				A63E6BFB2148D69B006FF099 /* TXSakuraBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

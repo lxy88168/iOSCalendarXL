@@ -1,4 +1,4 @@
-module Pods_SKCalendarView {
+framework module Pods_SKCalendarView {
   umbrella header "Pods-SKCalendarView-umbrella.h"
 
   export *
