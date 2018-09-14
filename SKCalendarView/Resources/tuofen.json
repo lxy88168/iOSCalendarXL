@@ -1,0 +1,7 @@
+{
+    "accentColor": "#ff95c5",
+    "navBarTitleColor": {
+        "NSForegroundColorAttributeName": "#ff95c5"
+    },
+    "calendarImage": "calendar_tuofen"
+}

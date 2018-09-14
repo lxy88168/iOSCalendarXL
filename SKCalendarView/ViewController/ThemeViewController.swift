@@ -11,18 +11,18 @@ import UIKit
 private let reuseIdentifier = "Cell"
 private let userDefaults = UserDefaults.standard
 private let themes : [ThemeObject] = [
-    ThemeObject(name: "果橙", color: UIColor(red: 1, green: 0.47, blue: 0, alpha: 1)),
-    ThemeObject(name: "胭脂", color: UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)),
-    ThemeObject(name: "朱砂", color: UIColor(red: 0.9, green: 0.3, blue: 0.2, alpha: 1)),
-    ThemeObject(name: "茜红", color: UIColor(red: 1, green: 0.4, blue: 0.5, alpha: 1)),
-    ThemeObject(name: "它粉", color: UIColor(red: 1, green: 0.6, blue: 0.8, alpha: 1)),
-    ThemeObject(name: "天蓝", color: UIColor(red: 0.4, green: 0.7, blue: 1, alpha: 1)),
-    ThemeObject(name: "碧蓝", color: UIColor(red: 0.3, green: 0.8, blue: 0.8, alpha: 1)),
-    ThemeObject(name: "太蓝", color: UIColor(red: 0.3, green: 0.4, blue: 0.8, alpha: 1)),
-    ThemeObject(name: "莓紫", color: UIColor(red: 0.5, green: 0.4, blue: 0.8, alpha: 1)),
-    ThemeObject(name: "竹青", color: UIColor(red: 0.1, green: 0.7, blue: 0.4, alpha: 1)),
-    ThemeObject(name: "柳青", color: UIColor(red: 0.5, green: 0.8, blue: 0.1, alpha: 1)),
-    ThemeObject(name: "墨青", color: UIColor(red: 0.3, green: 0.3, blue: 0.4, alpha: 1))
+    ThemeObject(name: "果橙", themeFileName: "default", color: UIColor(red: 1, green: 0.47, blue: 0, alpha: 1)),
+    ThemeObject(name: "胭脂", themeFileName: "yanzhi", color: UIColor(red: 0.8, green: 0.2, blue: 0.2, alpha: 1)),
+    ThemeObject(name: "朱砂", themeFileName: "zhusha", color: UIColor(red: 0.9, green: 0.3, blue: 0.2, alpha: 1)),
+    ThemeObject(name: "茜红", themeFileName: "xihong", color: UIColor(red: 1, green: 0.4, blue: 0.5, alpha: 1)),
+    ThemeObject(name: "酡粉", themeFileName: "tuofen", color: UIColor(red: 1, green: 0.6, blue: 0.8, alpha: 1)),
+    ThemeObject(name: "天蓝", themeFileName: "tianlan", color: UIColor(red: 0.4, green: 0.7, blue: 1, alpha: 1)),
+    ThemeObject(name: "碧蓝", themeFileName: "bilan", color: UIColor(red: 0.3, green: 0.8, blue: 0.8, alpha: 1)),
+    ThemeObject(name: "酞蓝", themeFileName: "tailan", color: UIColor(red: 0.3, green: 0.4, blue: 0.8, alpha: 1)),
+    ThemeObject(name: "莓紫", themeFileName: "meizi", color: UIColor(red: 0.5, green: 0.4, blue: 0.8, alpha: 1)),
+    ThemeObject(name: "竹青", themeFileName: "zhuqin", color: UIColor(red: 0.1, green: 0.7, blue: 0.4, alpha: 1)),
+    ThemeObject(name: "柳青", themeFileName: "liuqin", color: UIColor(red: 0.5, green: 0.8, blue: 0.1, alpha: 1)),
+    ThemeObject(name: "墨青", themeFileName: "moqin", color: UIColor(red: 0.3, green: 0.3, blue: 0.4, alpha: 1))
 ]
 
 class ThemeViewController: UICollectionViewController {
@@ -98,7 +98,7 @@ class ThemeViewController: UICollectionViewController {
         //change theme
         userDefaults.set(currentTheme.name, forKey: "theme")
         collectionView.reloadData()
-        
+        TXSakuraManager.shiftSakura(withName: currentTheme.themeFileName, type: .mainBundle)
     }
 
     // MARK: UICollectionViewDelegate

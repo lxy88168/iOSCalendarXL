@@ -71,6 +71,18 @@
 		A6653F7321493D3100687B51 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6653F7121493D3100687B51 /* AddButtonCell.swift */; };
 		A6653F7421493D3100687B51 /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7221493D3100687B51 /* AddButtonCell.xib */; };
 		A6653F772149869F00687B51 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F762149869F00687B51 /* default.json */; };
+		A6653F79214A292500687B51 /* yanzhi.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F78214A292400687B51 /* yanzhi.json */; };
+		A6653F7B214A420D00687B51 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6653F7A214A420D00687B51 /* SettingsViewController.swift */; };
+		A6653F86214A59F500687B51 /* bilan.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7C214A59F300687B51 /* bilan.json */; };
+		A6653F87214A59F500687B51 /* liuqin.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7D214A59F300687B51 /* liuqin.json */; };
+		A6653F88214A59F500687B51 /* moqin.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7E214A59F400687B51 /* moqin.json */; };
+		A6653F89214A59F500687B51 /* tuofen.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F7F214A59F400687B51 /* tuofen.json */; };
+		A6653F8A214A59F500687B51 /* tailan.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F80214A59F400687B51 /* tailan.json */; };
+		A6653F8B214A59F500687B51 /* meizi.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F81214A59F400687B51 /* meizi.json */; };
+		A6653F8C214A59F500687B51 /* zhusha.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F82214A59F400687B51 /* zhusha.json */; };
+		A6653F8D214A59F500687B51 /* tianlan.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F83214A59F400687B51 /* tianlan.json */; };
+		A6653F8E214A59F500687B51 /* zhuqin.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F84214A59F400687B51 /* zhuqin.json */; };
+		A6653F8F214A59F500687B51 /* xihong.json in Resources */ = {isa = PBXBuildFile; fileRef = A6653F85214A59F500687B51 /* xihong.json */; };
 		E46BB91A1E8B678400A1E1C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB9191E8B678400A1E1C7 /* main.m */; };
 		E46BB91D1E8B678400A1E1C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E46BB91C1E8B678400A1E1C7 /* AppDelegate.m */; };
 		E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E46BB9211E8B678400A1E1C7 /* Main.storyboard */; };
@@ -185,6 +197,18 @@
 		A6653F7121493D3100687B51 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		A6653F7221493D3100687B51 /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
 		A6653F762149869F00687B51 /* default.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = default.json; sourceTree = "<group>"; };
+		A6653F78214A292400687B51 /* yanzhi.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = yanzhi.json; sourceTree = "<group>"; };
+		A6653F7A214A420D00687B51 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6653F7C214A59F300687B51 /* bilan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bilan.json; sourceTree = "<group>"; };
+		A6653F7D214A59F300687B51 /* liuqin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = liuqin.json; sourceTree = "<group>"; };
+		A6653F7E214A59F400687B51 /* moqin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moqin.json; sourceTree = "<group>"; };
+		A6653F7F214A59F400687B51 /* tuofen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tuofen.json; sourceTree = "<group>"; };
+		A6653F80214A59F400687B51 /* tailan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tailan.json; sourceTree = "<group>"; };
+		A6653F81214A59F400687B51 /* meizi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = meizi.json; sourceTree = "<group>"; };
+		A6653F82214A59F400687B51 /* zhusha.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zhusha.json; sourceTree = "<group>"; };
+		A6653F83214A59F400687B51 /* tianlan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tianlan.json; sourceTree = "<group>"; };
+		A6653F84214A59F400687B51 /* zhuqin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zhuqin.json; sourceTree = "<group>"; };
+		A6653F85214A59F500687B51 /* xihong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xihong.json; sourceTree = "<group>"; };
 		D40120A811C0307FFDDA7152 /* Pods-SKCalendarView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKCalendarView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKCalendarView/Pods-SKCalendarView.release.xcconfig"; sourceTree = "<group>"; };
 		E46BB9151E8B678400A1E1C7 /* SKCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46BB9191E8B678400A1E1C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -244,6 +268,7 @@
 				A615954221378E160061E828 /* RemindDetailViewControllerTableViewController.swift */,
 				A63E6BB22147A5B4006FF099 /* ThemeViewController.swift */,
 				A6653F6F2149250800687B51 /* SelectRingViewController.swift */,
+				A6653F7A214A420D00687B51 /* SettingsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -397,7 +422,18 @@
 		A6653F75214985FC00687B51 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A6653F7C214A59F300687B51 /* bilan.json */,
+				A6653F7D214A59F300687B51 /* liuqin.json */,
+				A6653F81214A59F400687B51 /* meizi.json */,
+				A6653F7E214A59F400687B51 /* moqin.json */,
+				A6653F7F214A59F400687B51 /* tuofen.json */,
+				A6653F80214A59F400687B51 /* tailan.json */,
+				A6653F83214A59F400687B51 /* tianlan.json */,
+				A6653F85214A59F500687B51 /* xihong.json */,
+				A6653F84214A59F400687B51 /* zhuqin.json */,
+				A6653F82214A59F400687B51 /* zhusha.json */,
 				A6653F762149869F00687B51 /* default.json */,
+				A6653F78214A292400687B51 /* yanzhi.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -571,23 +607,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6653F8F214A59F500687B51 /* xihong.json in Resources */,
+				A6653F8B214A59F500687B51 /* meizi.json in Resources */,
 				A626E72721330F1F008AD935 /* PlayButton@2x.png in Resources */,
 				A6653F772149869F00687B51 /* default.json in Resources */,
 				A6474136212E5F9C008C8EC0 /* AudioClipCell.xib in Resources */,
+				A6653F86214A59F500687B51 /* bilan.json in Resources */,
 				E46BB9281E8B678400A1E1C7 /* LaunchScreen.storyboard in Resources */,
 				A63E6BA421413025006FF099 /* RemindCell2.xib in Resources */,
 				E46BB9251E8B678400A1E1C7 /* Assets.xcassets in Resources */,
 				A626E72821330F1F008AD935 /* AudioRecorderViewController.xib in Resources */,
 				A63E6BB12147A345006FF099 /* ThemeCollectionViewCell.xib in Resources */,
+				A6653F88214A59F500687B51 /* moqin.json in Resources */,
 				A6653F7421493D3100687B51 /* AddButtonCell.xib in Resources */,
 				A63E6B8C21390BEB006FF099 /* RemindCell2TableViewCell.xib in Resources */,
 				E46BB9231E8B678400A1E1C7 /* Main.storyboard in Resources */,
+				A6653F8C214A59F500687B51 /* zhusha.json in Resources */,
+				A6653F8D214A59F500687B51 /* tianlan.json in Resources */,
 				A63E6B95213ADD8A006FF099 /* LocationNameCell.xib in Resources */,
+				A6653F89214A59F500687B51 /* tuofen.json in Resources */,
+				A6653F87214A59F500687B51 /* liuqin.json in Resources */,
+				A6653F8A214A59F500687B51 /* tailan.json in Resources */,
 				872C0A46211F33EE00D813AD /* right@2x.png in Resources */,
 				A626E70821300875008AD935 /* ImageCell.xib in Resources */,
 				A62922E6212FD47F0032E1E9 /* RemindCell.xib in Resources */,
 				872C0A43211F33EE00D813AD /* left@2x.png in Resources */,
+				A6653F79214A292500687B51 /* yanzhi.json in Resources */,
 				A626E72621330F1F008AD935 /* StopButton@2x.png in Resources */,
+				A6653F8E214A59F500687B51 /* zhuqin.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +671,7 @@
 				A63E6BEC2148D69B006FF099 /* TXSakuraShapeLayer.m in Sources */,
 				A626E70A21300C56008AD935 /* Models.swift in Sources */,
 				E49B05121E8F76A8007D230C /* SKCalendarAnimationManage.m in Sources */,
+				A6653F7B214A420D00687B51 /* SettingsViewController.swift in Sources */,
 				A626E70721300875008AD935 /* ImageCell.swift in Sources */,
 				A615954321378E160061E828 /* RemindDetailViewControllerTableViewController.swift in Sources */,
 				A63E6BEF2148D69B006FF099 /* TXSakuraImageView.m in Sources */,

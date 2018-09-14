@@ -1,0 +1,7 @@
+{
+    "accentColor": "#4dc8cd",
+    "navBarTitleColor": {
+        "NSForegroundColorAttributeName": "#4dc8cd"
+    },
+    "calendarImage": "calendar_bilan"
+}

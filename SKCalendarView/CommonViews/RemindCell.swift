@@ -106,7 +106,9 @@ class RemindCell: UITableViewCell, UICollectionViewDataSource {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        labelFriendlyTime.sakura.textColor()("accentColor")
+        
         viewBackground.layer.cornerRadius = 8
         var cellNib = UINib(nibName: "AudioClipCell", bundle: nil)
         collectionViewAudio.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SKCalendarView-Swift.h"
+#import "TXSakuraKit.h"
 
 @interface AppDelegate ()
 
@@ -17,39 +18,25 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    tabBarController.tabBar.sakura.tintColor(@"accentColor");
     
-//
-//    // status bar
-//    
-//    UIApplication.shared.theme_setStatusBarStyle([.lightContent, .default, .lightContent, .lightContent], animated: true)
-//    
-//    // navigation bar
-//    
-//    let navigationBar = UINavigationBar.appearance()
-//    
-//    let shadow = NSShadow()
-//    shadow.shadowOffset = CGSize(width: 0, height: 0)
-//    
-//    let titleAttributes = GlobalPicker.barTextColors.map { hexString in
-//        return [
-//                NSAttributedStringKey.foregroundColor: UIColor(rgba: hexString),
-//                NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16),
-//                NSAttributedStringKey.shadow: shadow
-//                ]
-//    }
-//    
-//    navigationBar.theme_tintColor = GlobalPicker.barTextColor
-//    navigationBar.theme_barTintColor = GlobalPicker.barTintColor
-//    navigationBar.theme_titleTextAttributes = ThemeDictionaryPicker.pickerWithAttributes(titleAttributes)
-//    
-//    // tab bar
-//    
-//    let tabBar = UITabBar.appearance()
-//    
-//    tabBar.theme_tintColor = GlobalPicker.barTextColor
-//    tabBar.theme_barTintColor = GlobalPicker.barTintColor
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"yanzi"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"bilan"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"liuqin"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"meizi"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"moqin"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"tuofen"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"tailan"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"tianlan"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"xihong"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"zhuqin"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"zhusha"]];
+    [TXSakuraManager registerLocalSakuraWithNames:@[@"yanzi"]];
     
+    NSString *name = [TXSakuraManager getSakuraCurrentName];
+    NSInteger type = [TXSakuraManager getSakuraCurrentType];
+    [TXSakuraManager shiftSakuraWithName:name type:type];
     return YES;
 }
 

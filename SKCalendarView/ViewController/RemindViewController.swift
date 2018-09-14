@@ -12,6 +12,7 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var emptyDataView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnNew: UIButton!
     
     let mediaCellSize = 70
     
@@ -20,6 +21,9 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.blue]
+        navigationController?.navigationBar.sakura.titleTextAttributes()("navBarTitleColor")
+        navigationController?.navigationBar.sakura.tintColor()("accentColor")
         automaticallyAdjustsScrollViewInsets = false
         
 //        tableView.register(RemindCell.classForCoder(), forCellReuseIdentifier: "remindCell")
@@ -27,11 +31,8 @@ class RemindViewController: UIViewController, UITableViewDataSource, UITableView
         let cellNib = UINib(nibName: "RemindCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "remindCell")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        btnNew.layer.cornerRadius = 8
+        btnNew.sakura.backgroundColor()("accentColor")
     }
     
     override func viewDidAppear(_ animated: Bool) {

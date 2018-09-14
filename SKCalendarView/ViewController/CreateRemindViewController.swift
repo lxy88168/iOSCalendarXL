@@ -486,9 +486,11 @@ class CreateRemindViewController: UITableViewController, UICollectionViewDataSou
         audioCollectionView.clipsToBounds = false
         imageCollectionView.clipsToBounds = false
         
-        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+//        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+        labelCalendar.layer.sakura.borderColor()("accentColor")
         labelCalendar.layer.borderWidth = 1
         labelCalendar.layer.cornerRadius = 3
+        labelCalendar.sakura.textColor()("accentColor")
         
         var layout =  audioCollectionView.collectionViewLayout as! LXCollectionViewLeftOrRightAlignedLayout
         layout.itemSize = CGSize(width: 70, height: 70)

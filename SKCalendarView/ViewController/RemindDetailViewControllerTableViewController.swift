@@ -51,9 +51,11 @@ class RemindDetailViewControllerTableViewController: UITableViewController, UICo
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+//        labelCalendar.layer.borderColor = UIColor(red: 1, green: 0.5, blue: 0.2, alpha: 1).cgColor
+        labelCalendar.layer.sakura.borderColor()("accentColor")
         labelCalendar.layer.borderWidth = 1
         labelCalendar.layer.cornerRadius = 3
+        labelCalendar.sakura.textColor()("accentColor")
         
         var cellNib = UINib(nibName: "AudioClipCell", bundle: nil)
         collectionViewAudios.register(cellNib, forCellWithReuseIdentifier: "audioClipCell")

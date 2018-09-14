@@ -11,6 +11,7 @@
 #import "SolarDatePickerView.h"
 #import "LunarDatePickerView.h"
 #import "CalendarHeader.h"
+#import "TXSakuraKit.h"
 
 @interface rqhsTableViewController () <SolarDatePickerViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *YangLiView;
@@ -46,6 +47,11 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *btnQueryTS;
 @property (weak, nonatomic) IBOutlet UIButton *btnQueryJG;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCalendar;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCalendarHZ1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCalendarHZ2;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCalendarTS1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewCalendarTS2;
 
 @end
 
@@ -58,6 +64,26 @@ static int houBtnSelected = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.sakura.titleTextAttributes(@"navBarTitleColor");
+    self.navigationController.navigationBar.sakura.tintColor(@"accentColor");
+    self.segControl.sakura.tintColor(@"accentColor");
+    self.TSJianGeLabel.sakura.textColor(@"accentColor");
+    self.TSYangLiLabel.sakura.textColor(@"accentColor");
+    self.TSYingLiLabel.sakura.textColor(@"accentColor");
+    self.btnQueryJG.sakura.backgroundColor(@"accentColor");
+    self.btnQueryTS.sakura.backgroundColor(@"accentColor");
+    self.YangLiLabel.sakura.backgroundColor(@"accentColor");
+    self.YingLiLabel.sakura.backgroundColor(@"accentColor");
+    self.JianGeLabel.sakura.textColor(@"accentColor");
+    self.qianBtn.sakura.titleColor(@"accentColor", UIControlStateSelected);
+    self.qianBtn.selected = true;
+    self.houBtn.sakura.titleColor(@"accentColor", UIControlStateSelected);
+    self.imageViewCalendar.sakura.image(@"calendarImage");
+    self.imageViewCalendarHZ1.sakura.image(@"calendarImage");
+    self.imageViewCalendarHZ2.sakura.image(@"calendarImage");
+    self.imageViewCalendarTS1.sakura.image(@"calendarImage");
+    self.imageViewCalendarTS2.sakura.image(@"calendarImage");
     
     //View设置
     self.firstDateView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -99,8 +125,8 @@ static int houBtnSelected = 0;
     //其他设置
     [self.JianGeTextField addTarget:self action:@selector(textFieldDidchange:) forControlEvents:UIControlEventEditingChanged];
     self.JianGeTextField.delegate = self;
-    [self.qianBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    [self.houBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//    [self.qianBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//    [self.houBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     //自定义button
     self.btn = [[UIButton alloc] initWithFrame:self.view.bounds];
@@ -421,17 +447,21 @@ static int houBtnSelected = 0;
     }];
 }
 - (IBAction)qianBtnClick:(id)sender {
-    [self.qianBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:103/255.0 blue:0/255.0 alpha:1] forState:UIControlStateNormal];
+//    [self.qianBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:103/255.0 blue:0/255.0 alpha:1] forState:UIControlStateNormal];
+    self.qianBtn.selected = true;
     qianBtnSelected = 1;
     houBtnSelected = 0;
-    [self.houBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//    [self.houBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    self.houBtn.selected = false;
 }
 
 - (IBAction)houBtnClick:(id)sender {
-    [self.houBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:103/255.0 blue:0/255.0 alpha:1] forState:UIControlStateNormal];
+//    [self.houBtn setTitleColor:[UIColor colorWithRed:255/255.0 green:103/255.0 blue:0/255.0 alpha:1] forState:UIControlStateNormal];
+    self.houBtn.selected = true;
     qianBtnSelected = 0;
     houBtnSelected = 1;
-    [self.qianBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//    [self.qianBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    self.qianBtn.selected = false;
 }
 
 - (IBAction)JianGeTextFieldClick:(id)sender {

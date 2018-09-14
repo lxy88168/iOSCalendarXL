@@ -100,10 +100,12 @@ class Remind: NSObject, NSCoding {
 
 class ThemeObject: NSObject {
     var name: String?
+    var themeFileName: String?
     var color: UIColor?
     
-    init(name: String, color: UIColor) {
+    init(name: String, themeFileName: String, color: UIColor) {
         self.name = name
+        self.themeFileName = themeFileName
         self.color = color
     }
 }

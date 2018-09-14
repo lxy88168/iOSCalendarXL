@@ -10,6 +10,7 @@
 #import "SKConstant.h"
 #import "SKCalendarView-Swift.h"
 #import "RemindCell2.h"
+#import "TXSakuraKit.h"
 
 @interface wnlViewController () <SKCalendarViewDelegate>
 //@property (nonatomic, strong) SKCalendarView * calendarView;
@@ -48,6 +49,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.sakura.titleTextAttributes(@"navBarTitleColor");
+    self.navigationController.navigationBar.sakura.tintColor(@"accentColor");
+    
+    self.dayLabel.sakura.textColor(@"accentColor");
+    self.holidayLabel.sakura.textColor(@"accentColor");
     
     self.contentCellHeight = 364;
     self.reminds = [[NSMutableArray alloc] init];
